@@ -1,4 +1,4 @@
-Meu Blog Tech
+ Blog Tech da Bianca Amaral
 
 ```
 <!DOCTYPE html>
@@ -6,34 +6,176 @@ Meu Blog Tech
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog Tech</title>
+    <title>Bianca Amaral | Blog Tech</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            color: #1e293b;
+            min-height: 100vh;
         }
 
         header {
-            background-color: #183C63;
-            color: #FFFFFF;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 16px;
+            color: white;
+            padding: 70px 20px 50px;
+        }
+
+        header .icone {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        header h1 span {
+            color: #a78bfa;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #cbd5e1;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
         }
 
         main {
-            background-color: #FFFFFF;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 0 20px 50px;
         }
 
-        img {
-            width: 80px;
-            height: 80px;
+        .post {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .categoria {
+            display: inline-block;
+            background: #ede9fe;
+            color: #6d28d9;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .post h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .autor {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .imagem {
+            width: 100%;
+            height: 220px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #7c3aed, #2563eb);
+        }
+
+        .post p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #475569;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card .emoji {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            padding: 30px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .post {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -41,28 +183,91 @@ Meu Blog Tech
 <body>
 
     <header>
-        <h1>Meu blog tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-    </header>
+        <div class="icone">💻</div>
 
-    <main>
-        <img
-            src="imagem-blog.png"
-            alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco."
-        >
-
-        <h2>Meu primeiro post</h2>
-
-        <p><strong>Por: Bianca Amaral</strong></p>
+        <h1>Blog Tech da <span>Bianca</span></h1>
 
         <p>
-            Seja bem-vindo ao meu blog! Aqui vou compartilhar conhecimentos,
-            dicas e conteúdos sobre tecnologia e programação.
+            Tecnologia, programação e tudo que estou aprendendo 🚀
         </p>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Tecnologia</a>
+        <a href="#">Programação</a>
+        <a href="#">Sobre mim</a>
+    </nav>
+
+    <main>
+
+        <section class="post">
+
+            <span class="categoria">TECNOLOGIA</span>
+
+            <h2>Meu primeiro post 🚀</h2>
+
+            <div class="autor">
+                ✍️ Por: <strong>Bianca Amaral</strong>
+            </div>
+
+            <div class="imagem"></div>
+
+            <p>
+                Seja bem-vindo ao meu blog! 💜
+                Aqui vou compartilhar conhecimentos, dicas,
+                curiosidades e conteúdos sobre tecnologia e programação.
+            </p>
+
+            <br>
+
+            <p>
+                Este espaço será como um diário da minha jornada,
+                onde vou registrar o que estou aprendendo e descobrindo
+                no mundo da tecnologia.
+            </p>
+
+        </section>
+
+        <section class="cards">
+
+            <div class="card">
+                <div class="emoji">💡</div>
+                <h3>Curiosidades</h3>
+                <p>
+                    Descubra curiosidades interessantes
+                    sobre tecnologia e informática.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">👩‍💻</div>
+                <h3>Programação</h3>
+                <p>
+                    Dicas e aprendizados sobre HTML,
+                    CSS, JavaScript e muito mais.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🚀</div>
+                <h3>Minha jornada</h3>
+                <p>
+                    Acompanhe minha evolução e tudo
+                    que estou aprendendo nessa área.
+                </p>
+            </div>
+
+        </section>
+
     </main>
+
+    <footer>
+        © 2026 Bianca Amaral • Meu Blog Tech 💜
+    </footer>
 
 </body>
 </html>
 ```
 
- Também recomendo remover o **primeiro bloco HTML duplicado** que você colocou antes desse, porque o arquivo deve ter apenas um `<!DOCTYPE html>`.
+ Essa versão já fica **bem diferente do modelo original**, principalmente pelo cabeçalho moderno, navegação, cards, gradiente, responsividade e efeitos ao passar o mouse.
