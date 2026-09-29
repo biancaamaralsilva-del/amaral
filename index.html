@@ -1,468 +1,204 @@
  Blog Tech da Bianca Amaral
 
-```
-```
+``
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TechBlog | Bianca Amaral</title>
-
+    <title>Tech & Edu Blog - Marcelo Paludetto</title>
     <style>
+        :root {
+            --primary-pink: #ff6b6b;
+            --secondary-pink: #ff8e8e;
+            --primary-blue: #4ea8de;
+            --dark-blue: #5e60ce;
+            --bg-gradient: linear-gradient(135deg, #4ea8de 0%, #5e60ce 50%, #ff6b6b 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #2b2d42;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --azul: #2563eb;
-            --azul-escuro: #0f172a;
-            --azul-claro: #eff6ff;
-            --branco: #ffffff;
-            --cinza: #64748b;
-            --fundo: #f8fafc;
-            --borda: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--fundo);
-            color: var(--azul-escuro);
-            line-height: 1.6;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 40px 20px;
         }
-
-        /* CABEÇALHO */
 
         header {
-            background: linear-gradient(135deg, #0f172a, #2563eb);
-            color: white;
-            padding: 25px 8%;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            color: var(--azul);
-            border-radius: 12px;
-            font-size: 23px;
-        }
-
-        .logo h1 {
-            font-size: 24px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #bfdbfe;
-        }
-
-        /* APRESENTAÇÃO */
-
-        .hero {
-            max-width: 1000px;
-            margin: 60px auto 40px;
-            padding: 0 25px;
             text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
         }
 
-        .hero h2 span {
-            color: var(--azul);
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            color: var(--cinza);
-            font-size: 18px;
-        }
-
-        /* POSTS */
 
         main {
-            max-width: 1200px;
-            margin: 40px auto 80px;
-            padding: 0 25px;
-
+            max-width: 900px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
 
-        .post {
-            background: var(--branco);
-            border: 1px solid var(--borda);
+        /* Card do Post */
+        .post-card {
+            background: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .post:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
         }
 
-        .post img {
+        @media (min-width: 768px) {
+            .post-card {
+                flex-direction: row;
+                height: 280px;
+            }
+        }
+
+        /* Área da Imagem */
+        .post-image-container {
+            flex: 1;
+            position: relative;
+            min-height: 200px;
+        }
+
+        .post-image {
             width: 100%;
-            height: 230px;
+            height: 100%;
             object-fit: cover;
-            display: block;
         }
 
+        /* Conteúdo do Post */
         .post-content {
-            padding: 28px;
+            flex: 1.2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .categoria {
-            display: inline-block;
-            background: var(--azul-claro);
-            color: var(--azul);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .post h2 {
-            font-size: 25px;
+        .post-content h2 {
+            color: var(--dark-blue);
+            font-size: 1.6rem;
             margin-bottom: 8px;
         }
 
         .artigo-autor {
-            color: var(--azul);
-            font-size: 14px;
+            font-size: 0.9rem;
+            color: var(--primary-pink);
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 15px;
         }
 
-        .post-texto {
-            color: var(--cinza);
-            margin-bottom: 25px;
+        .post-content p {
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        /* BOTÕES */
-
-        .acoes {
+        /* Botões de Reação */
+        .reactions {
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
 
-        .acoes button {
-            border: 1px solid var(--borda);
-            background: white;
-            padding: 9px 15px;
-            border-radius: 10px;
+        .reactions button {
+            background: #f0f2f5;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            color: var(--text-color);
+            font-weight: 600;
         }
 
-        .acoes button:hover {
-            background: var(--azul-claro);
-            border-color: #93c5fd;
-            color: var(--azul);
-        }
-
-        .acoes span {
-            margin-left: 5px;
-            font-weight: bold;
-        }
-
-        /* RODAPÉ */
-
-        footer {
-            background: var(--azul-escuro);
+        .reactions button:hover {
+            background: var(--primary-pink);
             color: white;
-            text-align: center;
-            padding: 30px 20px;
+            transform: scale(1.05);
         }
 
-        footer p {
-            color: #cbd5e1;
-            margin: 5px;
-        }
-
-        /* CELULAR */
-
-        @media (max-width: 768px) {
-
-            .navbar {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-
-            .hero h2 {
-                font-size: 32px;
-            }
-
-            main {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            nav {
-                display: flex;
-                gap: 10px;
-            }
-
-            nav a {
-                margin: 0;
-                font-size: 14px;
-            }
-
-            .hero h2 {
-                font-size: 28px;
-            }
-
-            .post-content {
-                padding: 20px;
-            }
+        .reactions button.btn-blue:hover {
+            background: var(--primary-blue);
         }
     </style>
 </head>
-
 <body>
 
-    <!-- CABEÇALHO -->
-
     <header>
-
-        <div class="navbar">
-
-            <div class="logo">
-
-                <div class="logo-icon">
-                    💻
-                </div>
-
-                <h1>TechBlog</h1>
-
-            </div>
-
-            <nav>
-                <a href="#">Início</a>
-                <a href="#posts">Posts</a>
-                <a href="#sobre">Sobre</a>
-            </nav>
-
-        </div>
-
+        <h1>Meu Blog de Tecnologia</h1>
+        <p>Explorando o universo do código e da educação</p>
     </header>
 
-    <!-- APRESENTAÇÃO -->
-
-    <section class="hero">
-
-        <h2>
-            Bem-vindo ao <span>meu blog</span> 🚀
-        </h2>
-
-        <p>
-            Um espaço para compartilhar conhecimentos, experiências,
-            dicas de programação e curiosidades sobre tecnologia.
-        </p>
-
-    </section>
-
-    <!-- POSTS -->
-
-    <main id="posts">
-
-        <!-- PRIMEIRO POST -->
-
-        <article class="post">
-
-            <img
-                src="imagem-blog.png"
-                alt="Logotipo conceitual de tecnologia e educação com livro aberto, cérebro digital, circuitos e lâmpada de ideia"
-            >
-
-            <div class="post-content">
-
-                <span class="categoria">
-                    Programação
-                </span>
-
-                <h2>
-                    Meu primeiro post
-                </h2>
-
-                <p class="artigo-autor">
-                    Por: Bianca Amaral
-                </p>
-
-                <p class="post-texto">
-                    Olá, pessoal! Seja muito bem-vindo ao meu blog.
-
-                    Meu nome é Bianca Amaral e criei este espaço para
-                    compartilhar um pouco do que venho aprendendo sobre
-                    programação, tecnologia e desenvolvimento web.
-
-                    A programação pode parecer complicada no começo,
-                    mas, com prática e dedicação, é possível transformar
-                    ideias em projetos reais.
-
-                    Aqui no blog, pretendo compartilhar dicas para quem
-                    está começando, pequenos projetos, conceitos importantes
-                    de programação, curiosidades sobre tecnologia e também
-                    algumas experiências durante meu aprendizado.
-
-                    Quero que este seja um espaço para aprender,
-                    compartilhar conhecimento e evoluir.
-                </p>
-
-                <div class="acoes">
-
-                    <button onclick="curtir(this)">
-                        👍 <span>0</span>
-                    </button>
-
-                    <button onclick="curtir(this)">
-                        ❤️ <span>0</span>
-                    </button>
-
-                </div>
-
+    <main>
+        <!-- Primeiro Post -->
+        <article class="post-card">
+            <div class="post-image-container">
+                <img class="post-image" src="https://unsplash.com" alt="Logotipo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
             </div>
-
+            <div class="post-content">
+                <div>
+                    <h2>Meu primeiro post</h2>
+                    <p class="artigo-autor">Por: Marcelo Paludetto</p>
+                    <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+                </div>
+                <div class="reactions">
+                    <button class="btn-blue">🚀 <span>12</span></button>
+                    <button class="btn-pink">💡 <span>8</span></button>
+                </div>
+            </div>
         </article>
 
-        <!-- SEGUNDO POST -->
-
-        <article class="post">
-
-            <img
-                src="imagem-blog.png"
-                alt="Logotipo conceitual de tecnologia e educação com livro aberto e cérebro digital"
-            >
-
-            <div class="post-content">
-
-                <span class="categoria">
-                    Tecnologia
-                </span>
-
-                <h2>
-                    Começando na programação
-                </h2>
-
-                <p class="artigo-autor">
-                    Por: Bianca Amaral
-                </p>
-
-                <p class="post-texto">
-                    Aprender programação é uma jornada cheia de
-                    descobertas. No início, é normal encontrar
-                    dificuldades e cometer erros.
-
-                    Cada erro, porém, pode se transformar em uma
-                    oportunidade de aprendizado.
-
-                    HTML, CSS e JavaScript são algumas das tecnologias
-                    que podem ajudar quem está dando os primeiros
-                    passos no desenvolvimento web.
-
-                    Com dedicação e prática, podemos criar páginas,
-                    sistemas e projetos cada vez mais interessantes.
-
-                    O mais importante é continuar estudando,
-                    praticando e não desistir diante dos desafios.
-                </p>
-
-                <div class="acoes">
-
-                    <button onclick="curtir(this)">
-                        👍 <span>0</span>
-                    </button>
-
-                    <button onclick="curtir(this)">
-                        ❤️ <span>0</span>
-                    </button>
-
-                </div>
-
+        <!-- Segundo Post -->
+        <article class="post-card">
+            <div class="post-image-container">
+                <img class="post-image" src="https://unsplash.com" alt="Logotipo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
             </div>
-
+            <div class="post-content">
+                <div>
+                    <h2>Desmistificando o Código</h2>
+                    <p class="artigo-autor">Por: Marcelo Paludetto</p>
+                    <p>Aprender a programar não precisa ser um bicho de sete cabeças. No artigo de hoje, vamos quebrar os principais mitos do desenvolvimento.</p>
+                </div>
+                <div class="reactions">
+                    <button class="btn-blue">🚀 <span>24</span></button>
+                    <button class="btn-pink">💡 <span>19</span></button>
+                </div>
+            </div>
         </article>
-
     </main>
 
-    <!-- RODAPÉ -->
-
-    <footer id="sobre">
-
-        <p>
-            © 2026 TechBlog — Bianca Amaral
-        </p>
-
-        <p>
-            Tecnologia • Programação • Educação
-        </p>
-
-    </footer>
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        function curtir(botao) {
-
-            const contador = botao.querySelector("span");
-
-            let valor = Number(contador.textContent);
-
-            valor++;
-
-            contador.textContent = valor;
-
-        }
-
-    </script>
-
 </body>
-
 </html>
-```
-
