@@ -1,14 +1,15 @@
  Blog Tech da Bianca Amaral
 
 ```
-``<!DOCTYPE html>
+```
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TechBlog | Tecnologia e Programação</title>
+    <title>TechBlog | Bianca Amaral</title>
 
     <style>
         * {
@@ -37,7 +38,7 @@
         /* CABEÇALHO */
 
         header {
-            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            background: linear-gradient(135deg, #0f172a, #2563eb);
             color: white;
             padding: 25px 8%;
             box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
@@ -58,15 +59,15 @@
         }
 
         .logo-icon {
-            width: 42px;
-            height: 42px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: white;
             color: var(--azul);
             border-radius: 12px;
-            font-size: 22px;
+            font-size: 23px;
         }
 
         .logo h1 {
@@ -85,10 +86,10 @@
             color: #bfdbfe;
         }
 
-        /* HERO */
+        /* APRESENTAÇÃO */
 
         .hero {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 60px auto 40px;
             padding: 0 25px;
             text-align: center;
@@ -97,7 +98,6 @@
         .hero h2 {
             font-size: 42px;
             margin-bottom: 15px;
-            color: var(--azul-escuro);
         }
 
         .hero h2 span {
@@ -105,7 +105,7 @@
         }
 
         .hero p {
-            max-width: 650px;
+            max-width: 700px;
             margin: auto;
             color: var(--cinza);
             font-size: 18px;
@@ -129,7 +129,7 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: 0.3s;
         }
 
         .post:hover {
@@ -215,9 +215,10 @@
 
         footer p {
             color: #cbd5e1;
+            margin: 5px;
         }
 
-        /* RESPONSIVIDADE */
+        /* CELULAR */
 
         @media (max-width: 768px) {
 
@@ -228,11 +229,6 @@
 
             nav a {
                 margin: 0 8px;
-                font-size: 14px;
-            }
-
-            .hero {
-                margin-top: 40px;
             }
 
             .hero h2 {
@@ -253,6 +249,7 @@
 
             nav a {
                 margin: 0;
+                font-size: 14px;
             }
 
             .hero h2 {
@@ -268,12 +265,20 @@
 
 <body>
 
+    <!-- CABEÇALHO -->
+
     <header>
+
         <div class="navbar">
 
             <div class="logo">
-                <div class="logo-icon">💻</div>
+
+                <div class="logo-icon">
+                    💻
+                </div>
+
                 <h1>TechBlog</h1>
+
             </div>
 
             <nav>
@@ -283,41 +288,69 @@
             </nav>
 
         </div>
+
     </header>
+
+    <!-- APRESENTAÇÃO -->
 
     <section class="hero">
 
-        <h2>Bem-vindo ao <span>TechBlog</span> 🚀</h2>
+        <h2>
+            Bem-vindo ao <span>meu blog</span> 🚀
+        </h2>
 
         <p>
-            Um espaço para compartilhar dicas de programação,
-            tecnologia, desenvolvimento e curiosidades do mundo digital.
+            Um espaço para compartilhar conhecimentos, experiências,
+            dicas de programação e curiosidades sobre tecnologia.
         </p>
 
     </section>
 
+    <!-- POSTS -->
+
     <main id="posts">
 
-        <!-- POST 1 -->
+        <!-- PRIMEIRO POST -->
 
         <article class="post">
 
-            <img src="imagem-blog.png"
-                alt="Logotipo conceitual de tecnologia e educação com livro aberto e cérebro digital">
+            <img
+                src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação com livro aberto, cérebro digital, circuitos e lâmpada de ideia"
+            >
 
             <div class="post-content">
 
-                <span class="categoria">Programação</span>
+                <span class="categoria">
+                    Programação
+                </span>
 
-                <h2>Meu primeiro post</h2>
+                <h2>
+                    Meu primeiro post
+                </h2>
 
                 <p class="artigo-autor">
-                    Por: Marcelo Paludetto
+                    Por: Bianca Amaral
                 </p>
 
                 <p class="post-texto">
-                    Boas-vindas ao meu novo blog! Aqui vou compartilhar
-                    dicas de programação e curiosidades da área de tecnologia.
+                    Olá, pessoal! Seja muito bem-vindo ao meu blog.
+
+                    Meu nome é Bianca Amaral e criei este espaço para
+                    compartilhar um pouco do que venho aprendendo sobre
+                    programação, tecnologia e desenvolvimento web.
+
+                    A programação pode parecer complicada no começo,
+                    mas, com prática e dedicação, é possível transformar
+                    ideias em projetos reais.
+
+                    Aqui no blog, pretendo compartilhar dicas para quem
+                    está começando, pequenos projetos, conceitos importantes
+                    de programação, curiosidades sobre tecnologia e também
+                    algumas experiências durante meu aprendizado.
+
+                    Quero que este seja um espaço para aprender,
+                    compartilhar conhecimento e evoluir.
                 </p>
 
                 <div class="acoes">
@@ -336,26 +369,46 @@
 
         </article>
 
-        <!-- POST 2 -->
+        <!-- SEGUNDO POST -->
 
         <article class="post">
 
-            <img src="imagem-blog.png"
-                alt="Logotipo conceitual de tecnologia e educação com livro aberto e cérebro digital">
+            <img
+                src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação com livro aberto e cérebro digital"
+            >
 
             <div class="post-content">
 
-                <span class="categoria">Tecnologia</span>
+                <span class="categoria">
+                    Tecnologia
+                </span>
 
-                <h2>Aprendendo programação</h2>
+                <h2>
+                    Começando na programação
+                </h2>
 
                 <p class="artigo-autor">
-                    Por: Marcelo Paludetto
+                    Por: Bianca Amaral
                 </p>
 
                 <p class="post-texto">
-                    Descubra conceitos importantes para quem está
-                    começando no mundo da programação e do desenvolvimento web.
+                    Aprender programação é uma jornada cheia de
+                    descobertas. No início, é normal encontrar
+                    dificuldades e cometer erros.
+
+                    Cada erro, porém, pode se transformar em uma
+                    oportunidade de aprendizado.
+
+                    HTML, CSS e JavaScript são algumas das tecnologias
+                    que podem ajudar quem está dando os primeiros
+                    passos no desenvolvimento web.
+
+                    Com dedicação e prática, podemos criar páginas,
+                    sistemas e projetos cada vez mais interessantes.
+
+                    O mais importante é continuar estudando,
+                    praticando e não desistir diante dos desafios.
                 </p>
 
                 <div class="acoes">
@@ -376,10 +429,12 @@
 
     </main>
 
+    <!-- RODAPÉ -->
+
     <footer id="sobre">
 
         <p>
-            © 2026 TechBlog — Desenvolvido por Marcelo Paludetto
+            © 2026 TechBlog — Bianca Amaral
         </p>
 
         <p>
@@ -387,6 +442,8 @@
         </p>
 
     </footer>
+
+    <!-- JAVASCRIPT -->
 
     <script>
 
@@ -399,6 +456,7 @@
             valor++;
 
             contador.textContent = valor;
+
         }
 
     </script>
@@ -407,3 +465,4 @@
 
 </html>
 ```
+
