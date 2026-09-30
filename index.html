@@ -1,23 +1,13 @@
  Blog Tech da Bianca Amaral
 
-``
-<!DOCTYPE html>
-<html lang="pt-BR">
+``<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech & Edu Blog - Marcelo Paludetto</title>
+    <title>Blog Bianca Amaral</title>
     <style>
-        :root {
-            --primary-pink: #ff6b6b;
-            --secondary-pink: #ff8e8e;
-            --primary-blue: #4ea8de;
-            --dark-blue: #5e60ce;
-            --bg-gradient: linear-gradient(135deg, #4ea8de 0%, #5e60ce 50%, #ff6b6b 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-color: #2b2d42;
-        }
-
+        /* Configurações Globais (Reset) */
         * {
             margin: 0;
             padding: 0;
@@ -26,179 +16,235 @@
         }
 
         body {
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-color);
-            min-height: 100vh;
-            padding: 40px 20px;
+            background-color: #f0f4f8;
+            color: #334e68;
+            line-height: 1.6;
         }
 
+        /* Cabeçalho */
         header {
-            text-align: center;
+            background: linear-gradient(135deg, #0b4f6c, #1f7a8c);
             color: white;
-            margin-bottom: 50px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             font-size: 2.8rem;
             margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.9;
+            margin-bottom: 25px;
         }
 
-        main {
+        /* Menu de Navegação */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Layout Principal */
+        .container {
             max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            gap: 30px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2.section-title {
+            color: #0b4f6c;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #1f7a8c;
+            padding-bottom: 5px;
+            display: inline-block;
         }
 
         /* Card do Post */
         .post-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #1f7a8c;
+            transition: transform 0.2s ease;
         }
 
         .post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
         }
 
-        @media (min-width: 768px) {
-            .post-card {
-                flex-direction: row;
-                height: 280px;
-            }
+        .post-meta {
+            font-size: 0.85rem;
+            color: #627d98;
+            margin-bottom: 12px;
         }
 
-        /* Área da Imagem */
-        .post-image-container {
-            flex: 1;
-            position: relative;
-            min-height: 200px;
-        }
-
-        .post-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Conteúdo do Post */
-        .post-content {
-            flex: 1.2;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .post-content h2 {
-            color: var(--dark-blue);
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-        }
-
-        .artigo-autor {
-            font-size: 0.9rem;
-            color: var(--primary-pink);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .post-title {
+            color: #0b4f6c;
             margin-bottom: 15px;
+            font-size: 1.5rem;
         }
 
-        .post-content p {
-            color: #4a4a4a;
-            line-height: 1.6;
+        .post-excerpt {
+            color: #486581;
             margin-bottom: 20px;
         }
 
-        /* Botões de Reação */
-        .reactions {
+        /* Interações (Botões e Likes) */
+        .post-footer {
             display: flex;
-            gap: 15px;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e4e7eb;
+            padding-top: 15px;
         }
 
-        .reactions button {
-            background: #f0f2f5;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
+        .read-more {
+            color: #1f7a8c;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .read-more:hover {
+            color: #0b4f6c;
+        }
+
+        .like-section {
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.2s ease;
-            color: var(--text-color);
+        }
+
+        .like-btn {
+            background-color: #e6f2ff;
+            border: none;
+            color: #1f7a8c;
+            padding: 8px 16px;
+            font-size: 0.9rem;
             font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .reactions button:hover {
-            background: var(--primary-pink);
+        .like-btn:hover {
+            background-color: #1f7a8c;
             color: white;
-            transform: scale(1.05);
         }
 
-        .reactions button.btn-blue:hover {
-            background: var(--primary-blue);
+        .like-count {
+            font-weight: bold;
+            color: #0b4f6c;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0b4f6c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
+    <!-- Cabeçalho com Degradê Azul -->
     <header>
-        <h1>Meu Blog de Tecnologia</h1>
-        <p>Explorando o universo do código e da educação</p>
+        <h1>Bianca Amaral</h1>
+        <p>Um espaço para compartilhar histórias, tendências e inspirações</p>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre Mim</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <!-- Primeiro Post -->
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <h2 class="section-title">Publicações Recentes</h2>
+        
+        <!-- Post 1 -->
         <article class="post-card">
-            <div class="post-image-container">
-                <img class="post-image" src="https://unsplash.com" alt="Logotipo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
-            </div>
-            <div class="post-content">
-                <div>
-                    <h2>Meu primeiro post</h2>
-                    <p class="artigo-autor">Por: Marcelo Paludetto</p>
-                    <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
-                </div>
-                <div class="reactions">
-                    <button class="btn-blue">🚀 <span>12</span></button>
-                    <button class="btn-pink">💡 <span>8</span></button>
+            <div class="post-meta">Por Bianca Amaral • 30 de Setembro de 2026</div>
+            <h3 class="post-title">Bem-vindos ao meu novo blog!</h3>
+            <p class="post-excerpt">
+                Este é o primeiro registro do meu novo espaço digital. Preparei este ambiente com muito carinho em tons de azul para compartilhar as minhas melhores ideias com vocês. Fiquem à vontade para explorar e deixar o seu feedback!
+            </p>
+            <div class="post-footer">
+                <a href="#" class="read-more">Ler post completo →</a>
+                <div class="like-section">
+                    <button class="like-btn" onclick="curtirPost('likes1')">💙 Curtir</button>
+                    <span class="like-count" id="likes1">0</span>
                 </div>
             </div>
         </article>
 
-        <!-- Segundo Post -->
+        <!-- Post 2 -->
         <article class="post-card">
-            <div class="post-image-container">
-                <img class="post-image" src="https://unsplash.com" alt="Logotipo conceitual de tecnologia e educacao: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
-            </div>
-            <div class="post-content">
-                <div>
-                    <h2>Desmistificando o Código</h2>
-                    <p class="artigo-autor">Por: Marcelo Paludetto</p>
-                    <p>Aprender a programar não precisa ser um bicho de sete cabeças. No artigo de hoje, vamos quebrar os principais mitos do desenvolvimento.</p>
-                </div>
-                <div class="reactions">
-                    <button class="btn-blue">🚀 <span>24</span></button>
-                    <button class="btn-pink">💡 <span>19</span></button>
+            <div class="post-meta">Por Bianca Amaral • 29 de Setembro de 2026</div>
+            <h3 class="post-title">Como organizar a rotina e manter a criatividade</h3>
+            <p class="post-excerpt">
+                Manter a mente ativa e criativa exige mais do que apenas força de vontade; exige um ambiente organizado e hábitos saudáveis. No artigo de hoje, separei 5 dicas práticas que mudaram a minha forma de produzir conteúdo...
+            </p>
+            <div class="post-footer">
+                <a href="#" class="read-more">Ler post completo →</a>
+                <div class="like-section">
+                    <button class="like-btn" onclick="curtirPost('likes2')">💙 Curtir</button>
+                    <span class="like-count" id="likes2">0</span>
                 </div>
             </div>
         </article>
+
     </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Bianca Amaral. Desenvolvido com amor e código.</p>
+    </footer>
+
+    <!-- Lógica do Contador de Likes (JavaScript) -->
+    <script>
+        function curtirPost(idContador) {
+            // Captura o elemento do contador pelo ID
+            const elementoContador = document.getElementById(idContador);
+            
+            // Pega o número atual, transforma em inteiro e soma 1
+            let likesAtuais = parseInt(elementoContador.innerText);
+            likesAtuais++;
+            
+            // Atualiza o texto na tela
+            elementoContador.innerText = likesAtuais;
+        }
+    </script>
 
 </body>
 </html>
