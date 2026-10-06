@@ -1,250 +1,361 @@
  Blog Tech da Bianca Amaral
 
-``<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Bianca Amaral</title>
+    <title>Espaço Digital • Bianca Amaral</title>
+    <!-- Fonte Moderna do Google -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Configurações Globais (Reset) */
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --primary-light: #eff6ff;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius: 16px;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: #f0f4f8;
-            color: #334e68;
+            background-color: var(--background);
+            color: var(--text-main);
             line-height: 1.6;
+            padding-bottom: 60px;
         }
 
-        /* Cabeçalho */
+        /* Cabeçalho Premium */
         header {
-            background: linear-gradient(135deg, #0b4f6c, #1f7a8c);
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
             color: white;
-            padding: 60px 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 5rem 1rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
         }
 
         header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
         }
 
         header p {
             font-size: 1.1rem;
             opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        /* Menu de Navegação */
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: background 0.3s ease;
-        }
-
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Layout Principal */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        h2.section-title {
-            color: #0b4f6c;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            border-bottom: 3px solid #1f7a8c;
-            padding-bottom: 5px;
-            display: inline-block;
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
 
-        /* Card do Post */
+        /* Cards dos Posts */
         .post-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid #1f7a8c;
-            transition: transform 0.2s ease;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .post-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
         }
 
         .post-meta {
             font-size: 0.85rem;
-            color: #627d98;
-            margin-bottom: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
         }
 
         .post-title {
-            color: #0b4f6c;
-            margin-bottom: 15px;
             font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .post-excerpt {
-            color: #486581;
-            margin-bottom: 20px;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
         }
 
-        /* Interações (Botões e Likes) */
+        /* Rodapé do Card (Interações) */
         .post-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid #e4e7eb;
-            padding-top: 15px;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .read-more {
-            color: #1f7a8c;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: color 0.2s;
         }
 
         .read-more:hover {
-            color: #0b4f6c;
+            color: var(--primary-hover);
+            text-decoration: underline;
         }
 
         .like-section {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
         .like-btn {
-            background-color: #e6f2ff;
+            background: var(--primary-light);
             border: none;
-            color: #1f7a8c;
-            padding: 8px 16px;
-            font-size: 0.9rem;
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
             font-weight: 600;
-            border-radius: 20px;
+            font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 0.25rem;
         }
 
         .like-btn:hover {
-            background-color: #1f7a8c;
+            background: var(--primary);
             color: white;
         }
 
         .like-count {
-            font-weight: bold;
-            color: #0b4f6c;
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        /* Seção de Comentários Dinâmicos */
+        .comments-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .comments-section h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .comment-item {
+            background: var(--background);
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+
+        .comment-item strong {
+            color: var(--primary);
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        .comment-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .comment-form input {
+            flex: 1;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .comment-form input:focus {
+            border-color: var(--primary);
+        }
+
+        .comment-form button {
+            background: var(--text-main);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Formulário de Contato Principal */
+        .contact-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-top: 4rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-section h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.75rem;
+            letter-spacing: -0.03em;
+        }
+
+        .contact-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            background-color: var(--background);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background var(--primary-hover);
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-hover);
+        }
+
+        .success-message {
+            display: none;
+            background: #bbf7d0;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.95rem;
         }
 
         /* Rodapé */
         footer {
-            background-color: #0b4f6c;
-            color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 60px;
+            margin-top: 5rem;
+            padding: 2rem 0;
+            color: var(--text-muted);
             font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer strong {
+            color: var(--text-main);
         }
     </style>
 </head>
 <body>
 
-    <!-- Cabeçalho com Degradê Azul -->
+    <!-- Cabeçalho -->
     <header>
-        <h1>Bianca Amaral</h1>
-        <p>Um espaço para compartilhar histórias, tendências e inspirações</p>
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Mim</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
+        <h1>Meu Espaço Digital</h1>
+        <p>Um ambiente preparado com muito carinho para compartilhar ideias, rotinas e criatividade.</p>
     </header>
 
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <h2 class="section-title">Publicações Recentes</h2>
-        
-        <!-- Post 1 -->
-        <article class="post-card">
-            <div class="post-meta">Por Bianca Amaral • 30 de Setembro de 2026</div>
-            <h3 class="post-title">Bem-vindos ao meu novo blog!</h3>
-            <p class="post-excerpt">
-                Este é o primeiro registro do meu novo espaço digital. Preparei este ambiente com muito carinho em tons de azul para compartilhar as minhas melhores ideias com vocês. Fiquem à vontade para explorar e deixar o seu feedback!
-            </p>
-            <div class="post-footer">
-                <a href="#" class="read-more">Ler post completo →</a>
-                <div class="like-section">
-                    <button class="like-btn" onclick="curtirPost('likes1')">💙 Curtir</button>
-                    <span class="like-count" id="likes1">0</span>
+    <div class="container">
+        <main>
+            <!-- Post 1 -->
+            <article class="post-card">
+                <div class="post-meta">Por Bianca Amaral • 06 de Outubro de 2026</div>
+                <h3 class="post-title">Bem-vindos ao meu novo cantinho!</h3>
+                <p class="post-excerpt">
+                    Este é o primeiro registro do meu novo espaço digital. Preparei este ambiente com muito carinho em tons de azul para compartilhar as minhas melhores ideias com vocês. Fiquem à vontade para explorar e deixar o seu feedback!
+                </p>
+                
+                <div class="post-footer">
+                    <a href="#" class="read-more">Ler post completo →</a>
+                    <div class="like-section">
+                        <button class="like-btn" onclick="curtirPost('likes1')">💙 Curtir</button>
+                        <span class="like-count" id="likes1">0</span>
+                    </div>
                 </div>
-            </div>
-        </article>
 
-        <!-- Post 2 -->
-        <article class="post-card">
-            <div class="post-meta">Por Bianca Amaral • 29 de Setembro de 2026</div>
-            <h3 class="post-title">Como organizar a rotina e manter a criatividade</h3>
-            <p class="post-excerpt">
-                Manter a mente ativa e criativa exige mais do que apenas força de vontade; exige um ambiente organizado e hábitos saudáveis. No artigo de hoje, separei 5 dicas práticas que mudaram a minha forma de produzir conteúdo...
-            </p>
-            <div class="post-footer">
-                <a href="#" class="read-more">Ler post completo →</a>
-                <div class="like-section">
-                    <button class="like-btn" onclick="curtirPost('likes2')">💙 Curtir</button>
-                    <span class="like-count" id="likes2">0</span>
-                </div>
-            </div>
-        </article>
-
-    </main>
-
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2026 Bianca Amaral. Desenvolvido com amor e código.</p>
-    </footer>
-
-    <!-- Lógica do Contador de Likes (JavaScript) -->
-    <script>
-        function curtirPost(idContador) {
-            // Captura o elemento do contador pelo ID
-            const elementoContador = document.getElementById(idContador);
-            
-            // Pega o número atual, transforma em inteiro e soma 1
-            let likesAtuais = parseInt(elementoContador.innerText);
-            likesAtuais++;
-            
-            // Atualiza o texto na tela
-            elementoContador.innerText = likesAtuais;
-        }
-    </script>
-
-</body>
-</html>
+                <!-- Área de Comentários do Post 1 -->
+                <div class="comments-section">
+                    <h4>Comentários</h4>
+                    <div class="comment-list" id="lista-comentarios-1">
