@@ -1,248 +1,294 @@
-``<!DOCTYPE html>
-<html lang="pt-br">
+`<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Bianca Amaral</title>
-    <style>
-        /* Configurações Globais (Reset) */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f0f4f8;
-            color: #334e68;
-            line-height: 1.6;
-        }
-
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(135deg, #0b4f6c, #1f7a8c);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        /* Menu de Navegação */
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: background 0.3s ease;
-        }
-
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Layout Principal */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        h2.section-title {
-            color: #0b4f6c;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            border-bottom: 3px solid #1f7a8c;
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-
-        /* Card do Post */
-        .post-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid #1f7a8c;
-            transition: transform 0.2s ease;
-        }
-
-        .post-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .post-meta {
-            font-size: 0.85rem;
-            color: #627d98;
-            margin-bottom: 12px;
-        }
-
-        .post-title {
-            color: #0b4f6c;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .post-excerpt {
-            color: #486581;
-            margin-bottom: 20px;
-        }
-
-        /* Interações (Botões e Likes) */
-        .post-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #e4e7eb;
-            padding-top: 15px;
-        }
-
-        .read-more {
-            color: #1f7a8c;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .read-more:hover {
-            color: #0b4f6c;
-        }
-
-        .like-section {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .like-btn {
-            background-color: #e6f2ff;
-            border: none;
-            color: #1f7a8c;
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .like-btn:hover {
-            background-color: #1f7a8c;
-            color: white;
-        }
-
-        .like-count {
-            font-weight: bold;
-            color: #0b4f6c;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #0b4f6c;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
-            font-size: 0.9rem;
-        }
-    </style>
+    <title>Blog da Bianca Amaral</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Cabeçalho com Degradê Azul -->
     <header>
-        <h1>Bianca Amaral</h1>
-        <p>Um espaço para compartilhar histórias, tendências e inspirações</p>
+        <h1>Blog da Bianca Amaral</h1>
+
         <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Mim</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
+            <a href="#">Início</a>
+            <a href="#">Sobre mim</a>
+            <a href="#">Postagens</a>
+            <a href="#">Contato</a>
         </nav>
     </header>
 
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <h2 class="section-title">Publicações Recentes</h2>
-        
-        <!-- Post 1 -->
-        <article class="post-card">
-            <div class="post-meta">Por Bianca Amaral • 30 de Setembro de 2026</div>
-            <h3 class="post-title">Bem-vindos ao meu novo blog!</h3>
-            <p class="post-excerpt">
-                Este é o primeiro registro do meu novo espaço digital. Preparei este ambiente com muito carinho em tons de azul para compartilhar as minhas melhores ideias com vocês. Fiquem à vontade para explorar e deixar o seu feedback!
+    <main>
+
+        <article>
+            <h2>Meu primeiro post</h2>
+
+            <p>
+                Olá! Meu nome é Bianca Amaral e este é o meu blog.
+                Aqui vou compartilhar meus estudos, projetos e aprendizados.
             </p>
-            <div class="post-footer">
-                <a href="#" class="read-more">Ler post completo →</a>
-                <div class="like-section">
-                    <button class="like-btn" onclick="curtirPost('likes1')">💙 Curtir</button>
-                    <span class="like-count" id="likes1">0</span>
-                </div>
-            </div>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
         </article>
 
-        <!-- Post 2 -->
-        <article class="post-card">
-            <div class="post-meta">Por Bianca Amaral • 29 de Setembro de 2026</div>
-            <h3 class="post-title">Como organizar a rotina e manter a criatividade</h3>
-            <p class="post-excerpt">
-                Manter a mente ativa e criativa exige mais do que apenas força de vontade; exige um ambiente organizado e hábitos saudáveis. No artigo de hoje, separei 5 dicas práticas que mudaram a minha forma de produzir conteúdo...
+        <article>
+            <h2>Aprendendo HTML</h2>
+
+            <p>
+                O HTML é utilizado para criar a estrutura das páginas
+                da internet. Com ele podemos adicionar títulos, textos,
+                imagens, links e outros elementos.
             </p>
-            <div class="post-footer">
-                <a href="#" class="read-more">Ler post completo →</a>
-                <div class="like-section">
-                    <button class="like-btn" onclick="curtirPost('likes2')">💙 Curtir</button>
-                    <span class="like-count" id="likes2">0</span>
-                </div>
-            </div>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
+        </article>
+
+        <article>
+            <h2>Aprendendo CSS</h2>
+
+            <p>
+                O CSS é responsável pela aparência da página.
+                Podemos modificar cores, tamanhos, espaçamentos,
+                fontes e a disposição dos elementos.
+            </p>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
+        </article>
+
+        <article>
+            <h2>Conhecendo o Flexbox</h2>
+
+            <p>
+                O Flexbox é uma ferramenta muito importante do CSS.
+                Ele permite organizar os elementos de forma flexível,
+                facilitando a criação de layouts responsivos.
+            </p>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
+        </article>
+
+        <article>
+            <h2>Organizando meu blog</h2>
+
+            <p>
+                Nesta etapa do projeto, utilizei margem, padding e gap
+                para melhorar o espaçamento entre os cards e deixar
+                o blog mais organizado.
+            </p>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
+        </article>
+
+        <article>
+            <h2>Posts responsivos</h2>
+
+            <p>
+                Com o uso de flex-wrap e flex, os posts conseguem
+                se adaptar ao tamanho da tela. Quando não há espaço,
+                os cards passam para a próxima linha.
+            </p>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
+        </article>
+
+        <article>
+            <h2>Meu projeto</h2>
+
+            <p>
+                Estou desenvolvendo este blog como parte das minhas
+                atividades de programação e colocando em prática
+                os conhecimentos de HTML e CSS.
+            </p>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
+        </article>
+
+        <article>
+            <h2>Trabalhando em colaboração</h2>
+
+            <p>
+                Também participei de atividades em colaboração com
+                outros colegas, adicionando novas postagens aos blogs
+                e compartilhando conhecimentos.
+            </p>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
+        </article>
+
+        <article>
+            <h2>Próximos passos</h2>
+
+            <p>
+                Ainda pretendo continuar melhorando o projeto,
+                adicionando novos conteúdos e aprimorando o visual
+                do meu blog.
+            </p>
+
+            <button class="curtir" onclick="curtir(this)">
+                ❤️ Curtir <span>0</span>
+            </button>
         </article>
 
     </main>
 
-    <!-- Rodapé -->
     <footer>
-        <p>&copy; 2026 Bianca Amaral. Desenvolvido com amor e código.</p>
+        <p>&copy; 2026 Bianca Amaral. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Lógica do Contador de Likes (JavaScript) -->
     <script>
-        function curtirPost(idContador) {
-            // Captura o elemento do contador pelo ID
-            const elementoContador = document.getElementById(idContador);
-            
-            // Pega o número atual, transforma em inteiro e soma 1
-            let likesAtuais = parseInt(elementoContador.innerText);
-            likesAtuais++;
-            
-            // Atualiza o texto na tela
-            elementoContador.innerText = likesAtuais;
+        function curtir(botao) {
+            let contador = botao.querySelector("span");
+
+            let curtidas = Number(contador.textContent);
+
+            curtidas++;
+
+            contador.textContent = curtidas;
+
+            botao.classList.add("curtido");
         }
     </script>
 
 </body>
-</html>     
+
+</html>
+:::
+
+style.css
+:::writing{variant="document" id="27491" title="style.css — Blog com Curtidas"}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100vw;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #183C63;
+}
+
+header {
+    background-color: #183C63;
+    color: white;
+    padding: 24px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 16px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+article {
+    display: flex;
+    border: 1px solid #183C63;
+    margin: 16px;
+    gap: 16px;
+    padding: 16px;
+    flex: 1 1 25%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+    min-height: 250px;
+}
+
+article h2 {
+    color: #183C63;
+}
+
+article p {
+    color: #333;
+    line-height: 1.6;
+}
+
+.curtir {
+    border: none;
+    background-color: #f0f0f0;
+    color: #183C63;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.curtir:hover {
+    background-color: #ffd6de;
+    transform: scale(1.05);
+}
+
+.curtir.curtido {
+    background-color: #ffb6c1;
+    color: #b00020;
+}
+
+footer {
+    background-color: #183C63;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    article {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    article {
+        flex: 1 1 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
