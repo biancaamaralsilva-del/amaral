@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bianca Amaral // Quantum Tech Lab</title>
+    <title>Bianca Amaral // Holo-Deck Lab</title>
     <style>
-        /* DESIGN SYSTEM - GLOW CIBERNÉTICO ULTRA VISUAL */
+        /* CORE REVOLUTIONARY DESIGN SYSTEM (CYBER BLUE & NEON GLOW) */
         :root {
-            --bg-espacial: #020617;
-            --bg-grid: rgba(56, 189, 248, 0.03);
-            --vidro-puro: rgba(15, 23, 42, 0.65);
-            --vidro-borda: rgba(56, 189, 248, 0.25);
-            --neon-azul: #38bdf8;
-            --neon-cian: #00f5d4;
-            --neon-rosa: #f43f5e;
-            --texto-principal: #ffffff;
-            --texto-suave: #94a3b8;
-            --sombra-neon: 0 0 30px rgba(56, 189, 248, 0.25);
+            --fundo-vazio: #01030a;
+            --grade-energia: rgba(0, 180, 216, 0.03);
+            --vidro-liquido: rgba(6, 12, 26, 0.7);
+            --borda-laser: rgba(0, 180, 216, 0.25);
+            --laser-azul: #00b4d8;
+            --laser-cian: #0df5e3;
+            --laser-rosa: #ff0055;
+            --texto-luz: #ffffff;
+            --texto-esmaecido: #748cab;
+            --brilho-neon: 0 0 25px rgba(0, 180, 216, 0.35);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-espacial);
+            background-color: var(--fundo-vazio);
             background-image: 
-                linear-gradient(var(--bg-grid) 1px, transparent 1px),
-                linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
-            background-size: 50px 50px;
-            color: var(--texto-principal);
+                linear-gradient(var(--grade-energia) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grade-energia) 1px, transparent 1px);
+            background-size: 60px 60px;
+            color: var(--texto-luz);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -40,248 +40,251 @@
             position: relative;
         }
 
-        /* Orbes Gigantes de Luz Néon que dão o efeito de "aparecer" na tela */
-        .orbe-luz-1 {
+        /* Efeito de Nebulosa de Luz no Fundo da Tela */
+        .nebulosa-core {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            top: -200px;
-            left: -150px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
-            filter: blur(80px);
-            z-index: -1;
-            pointer-events: none;
-        }
-        .orbe-luz-2 {
-            position: absolute;
-            width: 500px;
+            width: 800px;
             height: 500px;
-            bottom: 10%;
-            right: -150px;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 245, 212, 0.15) 0%, transparent 70%);
-            filter: blur(80px);
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.15) 0%, transparent 65%);
+            filter: blur(100px);
             z-index: -1;
             pointer-events: none;
         }
 
-        /* HEADER GRANDE E IMPACTANTE */
+        /* PAINEL HOLOGRÁFICO PRINCIPAL (HEADER) */
         header {
-            max-width: 1300px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 80px 24px 40px 24px;
+            max-width: 1200px;
+            width: 90%;
+            margin: 60px auto 40px auto;
+            background: var(--vidro-liquido);
+            border: 1px solid var(--borda-laser);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 60px 40px;
             text-align: center;
+            box-shadow: var(--brilho-neon);
             position: relative;
         }
 
-        .logo-area {
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; width: 80%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--laser-cian), transparent);
+        }
+
+        .terminal-tag {
             display: inline-block;
-            padding: 6px 16px;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid var(--neon-azul);
-            border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            color: var(--laser-cian);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--neon-azul);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-            margin-bottom: 24px;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            font-weight: 700;
         }
 
         header h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
             line-height: 1.1;
             margin-bottom: 16px;
-        }
-
-        header h1 span {
-            background: linear-gradient(135deg, #ffffff 30%, var(--neon-azul), var(--neon-cian));
+            background: linear-gradient(135deg, #fff 40%, var(--laser-azul));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         header p {
-            color: var(--texto-suave);
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            font-weight: 300;
+            color: var(--texto-esmaecido);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto 35px auto;
             line-height: 1.6;
+            font-weight: 300;
         }
 
-        /* BOTÃO DE ESCREVER GRANDE QUE CHAMA ATENÇÃO */
-        .btn-abrir-painel {
-            background: linear-gradient(135deg, var(--neon-azul), var(--neon-cian));
-            color: #020617;
-            border: none;
-            padding: 16px 36px;
-            border-radius: 16px;
+        /* BOTÃO DE INTERAÇÃO FLUIDA */
+        .btn-launch-terminal {
+            background: transparent;
+            border: 1px solid var(--laser-cian);
+            color: var(--laser-cian);
+            padding: 14px 32px;
+            border-radius: 14px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 0 25px rgba(0, 245, 212, 0.4);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(13, 245, 227, 0.1);
         }
 
-        .btn-abrir-painel:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 0 35px rgba(0, 245, 212, 0.6);
+        .btn-launch-terminal:hover {
+            background: var(--laser-cian);
+            color: var(--fundo-vazio);
+            box-shadow: 0 0 25px rgba(13, 245, 227, 0.4);
+            transform: translateY(-2px);
         }
 
-        /* EDITOR POPUP INTEGRADO (FORMULÁRIO GRANDE E IMPRESSIONANTE) */
-        .modal-background {
+        /* FORMULÁRIO POPUP DE CONTEÚDO (DENTRO DO VIDRO) */
+        .backdrop-blur-system {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(1, 3, 10, 0.9);
+            backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 9999;
             opacity: 0; pointer-events: none;
             transition: opacity 0.3s ease;
         }
 
-        .modal-background.active {
+        .backdrop-blur-system.active {
             opacity: 1; pointer-events: auto;
         }
 
-        .modal-container {
-            background: var(--vidro-puro);
-            border: 1px solid var(--vidro-borda);
-            backdrop-filter: blur(25px);
+        .panel-crypto-form {
+            background: var(--vidro-liquido);
+            border: 1px solid rgba(13, 245, 227, 0.3);
             padding: 45px;
-            border-radius: 32px;
-            max-width: 700px;
+            border-radius: 28px;
+            max-width: 650px;
             width: 90%;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6), var(--sombra-neon);
-            transform: scale(0.9) translateY(20px);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 40px rgba(0, 180, 216, 0.15);
+            transform: scale(0.95);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .modal-background.active .modal-container { transform: scale(1) translateY(0); }
+        .backdrop-blur-system.active .panel-crypto-form { transform: scale(1); }
 
-        .modal-container h3 { font-size: 1.8rem; margin-bottom: 24px; color: #fff; font-weight: 800; }
-        .modal-container h3 span { color: var(--neon-cian); }
+        .panel-crypto-form h3 { font-size: 1.6rem; margin-bottom: 24px; font-weight: 800; letter-spacing: -0.5px; }
+        .panel-crypto-form h3 span { color: var(--laser-cian); }
 
-        .field-box { margin-bottom: 24px; }
-        .field-box label { display: block; font-size: 0.85rem; text-transform: uppercase; color: var(--neon-azul); margin-bottom: 10px; letter-spacing: 1px; font-weight: 700; }
-        .field-box input, .field-box textarea {
-            width: 100%; padding: 16px; background: rgba(0,0,0,0.4); border: 1px solid var(--vidro-borda); border-radius: 14px; color: #fff; font-size: 1.05rem; outline: none; transition: all 0.3s;
+        .form-field { margin-bottom: 24px; }
+        .form-field label { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--laser-azul); margin-bottom: 8px; letter-spacing: 1.5px; font-weight: 700; }
+        .form-field input, .form-field textarea {
+            width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid var(--borda-laser); border-radius: 12px; color: #fff; font-size: 1rem; outline: none; transition: all 0.3s;
         }
-        .field-box textarea { height: 200px; resize: none; }
-        .field-box input:focus, .field-box textarea:focus { border-color: var(--neon-cian); box-shadow: 0 0 15px rgba(0, 245, 212, 0.2); }
+        .form-field textarea { height: 180px; resize: none; }
+        .form-field input:focus, .form-field textarea:focus { border-color: var(--laser-cian); box-shadow: 0 0 15px rgba(13, 245, 227, 0.15); }
 
-        .modal-actions { display: flex; gap: 16px; margin-top: 30px; }
-        .btn-modal { flex: 1; padding: 16px; border-radius: 14px; border: none; cursor: pointer; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
-        .btn-modal.confirm { background: linear-gradient(135deg, var(--neon-azul), var(--neon-cian)); color: #020617; }
-        .btn-modal.cancel { background: transparent; border: 1px solid var(--vidro-borda); color: var(--texto-suave); }
-        .btn-modal.cancel:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .form-actions { display: flex; gap: 16px; }
+        .btn-form { flex: 1; padding: 16px; border-radius: 12px; border: none; cursor: pointer; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+        .btn-form.publish { background: var(--laser-cian); color: var(--fundo-vazio); }
+        .btn-form.discard { background: transparent; border: 1px solid var(--borda-laser); color: var(--texto-esmaecido); }
+        .btn-form.discard:hover { color: #fff; background: rgba(255,255,255,0.03); }
 
-        /* SEÇÃO DE GRID DE POSTS (FLEXBOX GRANDE E RESPONSIVO) */
+        /* SEÇÃO DE ARQUIVOS (FLEXBOX DESIGN RESPONSIVO) */
         main {
-            max-width: 1300px;
-            width: 100%;
+            max-width: 1200px;
+            width: 90%;
             margin: 0 auto;
-            padding: 40px 24px;
+            padding: 20px 0 60px 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 35px;
         }
 
-        /* CARDS MAIORES E ELABORADOS COM GLASSMORPHISM GLOW */
+        /* CARDS MAIORES E MAIS IMPONENTES COM EFEITO DE BORDA BRILHANTE */
         article {
-            flex: 1 1 100%; /* Inicia grande ocupando espaço de destaque */
-            background: var(--vidro-puro);
-            border: 1px solid var(--vidro-borda);
+            flex: 1 1 100%;
+            background: var(--vidro-liquido);
+            border: 1px solid var(--borda-laser);
             backdrop-filter: blur(16px);
             border-radius: 28px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             position: relative;
-            padding: 45px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Quando houver mais de um, eles se dividem em duas colunas lindas no PC */
-        @media (min-width: 900px) {
+        @media (min-width: 850px) {
             article { flex: 1 1 45%; }
         }
 
         article:hover {
-            transform: translateY(-8px);
-            border-color: var(--neon-azul);
-            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.15), var(--sombra-neon);
+            transform: translateY(-6px);
+            border-color: var(--laser-azul);
+            box-shadow: 0 20px 45px rgba(0, 180, 216, 0.1), var(--brilho-neon);
         }
 
-        .post-top-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-
-        .badge-design {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: #020617;
-            background: linear-gradient(135deg, var(--neon-azul), var(--neon-cian));
-            padding: 6px 14px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .meta-date {
-            font-size: 0.9rem;
-            color: var(--texto-suave);
-        }
-
-        article h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            line-height: 1.25;
-            color: var(--texto-principal);
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-        }
-
-        /* Área de conteúdo robusta perfeita para textos enormes */
-        .post-main-content {
-            font-size: 1.15rem;
-            line-height: 1.85;
-            color: var(--texto-suave);
-            margin-bottom: 40px;
-            white-space: pre-line; /* Mantém a formatação que você digitar inteira */
-            flex-grow: 1;
-        }
-
-        .post-footer-bar {
+        .article-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid rgba(56, 189, 248, 0.15);
-            padding-top: 28px;
+            margin-bottom: 24px;
+        }
+
+        .category-laser {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--laser-azul);
+            border: 1px solid var(--borda-laser);
+            padding: 4px 12px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(0, 180, 216, 0.05);
+        }
+
+        .timeline-stamp {
+            font-size: 0.85rem;
+            color: var(--texto-esmaecido);
+        }
+
+        article h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--texto-luz);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Espaço de texto amplo configurado para suportar redações imensas */
+        .editorial-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--texto-esmaecido);
+            margin-bottom: 35px;
+            white-space: pre-line; /* Mantém toda a sua quebra de linha intacta */
+            flex-grow: 1;
+        }
+
+        .article-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0, 180, 216, 0.1);
+            padding-top: 24px;
             margin-top: auto;
         }
 
-        .author-identity {
-            font-size: 1.05rem;
+        .signature-area {
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--texto-principal);
+            color: var(--texto-luz);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .author-identity-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--neon-cian);
+        .signature-pulse {
+            width: 6px;
+            height: 6px;
+            background-color: var(--laser-cian);
             border-radius: 50%;
-            box-shadow: 0 0 12px var(--neon-cian);
+            box-shadow: 0 0 10px var(--laser-cian);
+        }
+
+        /* BOTÃO DE CURTIR LASER PULSE */
+        .btn-laser-pulse {
+            background: rgba(0, 180, 216, 0.05);
+            border: 1px solid var(--borda-laser);
