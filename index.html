@@ -3,35 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bianca Amaral // Lab Digital</title>
+    <title>Bianca Amaral // Quantum Tech Lab</title>
     <style>
-        /* DESIGN SYSTEM - GLOW CIBERNÉTICO & GLASSMORPHISM */
+        /* DESIGN SYSTEM - GLOW CIBERNÉTICO ULTRA VISUAL */
         :root {
-            --bg-deep: #050b14;
-            --bg-grid: rgba(0, 245, 212, 0.02);
-            --glass-base: rgba(11, 22, 44, 0.6);
-            --glass-border: rgba(56, 189, 248, 0.15);
-            --glow-cyan: #00f5d4;
-            --glow-blue: #38bdf8;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --bg-espacial: #020617;
+            --bg-grid: rgba(56, 189, 248, 0.03);
+            --vidro-puro: rgba(15, 23, 42, 0.65);
+            --vidro-borda: rgba(56, 189, 248, 0.25);
+            --neon-azul: #38bdf8;
+            --neon-cian: #00f5d4;
+            --neon-rosa: #f43f5e;
+            --texto-principal: #ffffff;
+            --texto-suave: #94a3b8;
+            --sombra-neon: 0 0 30px rgba(56, 189, 248, 0.25);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: var(--font-stack);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--bg-deep);
+            background-color: var(--bg-espacial);
             background-image: 
                 linear-gradient(var(--bg-grid) 1px, transparent 1px),
                 linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
-            background-size: 40px 40px;
-            color: var(--text-primary);
+            background-size: 50px 50px;
+            color: var(--texto-principal);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -39,265 +40,248 @@
             position: relative;
         }
 
-        /* Orbes Abstratas de Luz no Fundo */
-        body::before, body::after {
-            content: '';
+        /* Orbes Gigantes de Luz Néon que dão o efeito de "aparecer" na tela */
+        .orbe-luz-1 {
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            left: -150px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-            filter: blur(60px);
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
             z-index: -1;
             pointer-events: none;
         }
-        body::before { top: -100px; left: -100px; }
-        body::after { bottom: 10%; right: -100px; background: radial-gradient(circle, rgba(0, 245, 212, 0.1) 0%, transparent 70%); }
+        .orbe-luz-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            bottom: 10%;
+            right: -150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
 
-        /* HEADER SLIM PREMIUM */
+        /* HEADER GRANDE E IMPACTANTE */
         header {
-            max-width: 1200px;
+            max-width: 1300px;
             width: 100%;
             margin: 0 auto;
-            padding: 60px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 24px 40px 24px;
+            text-align: center;
+            position: relative;
         }
 
-        .header-titles h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+        .logo-area {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--neon-azul);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neon-azul);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -2px;
             line-height: 1.1;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
 
-        .header-titles h1 span {
-            background: linear-gradient(to right, var(--glow-blue), var(--glow-cyan));
+        header h1 span {
+            background: linear-gradient(135deg, #ffffff 30%, var(--neon-azul), var(--neon-cian));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .header-titles p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            font-weight: 400;
+        header p {
+            color: var(--texto-suave);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+            line-height: 1.6;
         }
 
-        .header-action .btn-trigger {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            color: var(--text-primary);
-            padding: 12px 24px;
-            border-radius: 14px;
+        /* BOTÃO DE ESCREVER GRANDE QUE CHAMA ATENÇÃO */
+        .btn-abrir-painel {
+            background: linear-gradient(135deg, var(--neon-azul), var(--neon-cian));
+            color: #020617;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 16px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 0 25px rgba(0, 245, 212, 0.4);
             transition: all 0.3s ease;
         }
 
-        .header-action .btn-trigger:hover {
-            border-color: var(--glow-cyan);
-            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
-            transform: translateY(-2px);
+        .btn-abrir-painel:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 35px rgba(0, 245, 212, 0.6);
         }
 
-        /* EDITOR POPUP FLUTUANTE */
-        .panel-backdrop {
+        /* EDITOR POPUP INTEGRADO (FORMULÁRIO GRANDE E IMPRESSIONANTE) */
+        .modal-background {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(3, 7, 18, 0.8);
-            backdrop-filter: blur(8px);
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 100;
+            z-index: 1000;
             opacity: 0; pointer-events: none;
             transition: opacity 0.3s ease;
         }
 
-        .panel-backdrop.visible {
+        .modal-background.active {
             opacity: 1; pointer-events: auto;
         }
 
-        .panel-body {
-            background: var(--glass-base);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 28px;
-            max-width: 600px;
+        .modal-container {
+            background: var(--vidro-puro);
+            border: 1px solid var(--vidro-borda);
+            backdrop-filter: blur(25px);
+            padding: 45px;
+            border-radius: 32px;
+            max-width: 700px;
             width: 90%;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), var(--sombra-neon);
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .panel-backdrop.visible .panel-body { transform: translateY(0); }
+        .modal-background.active .modal-container { transform: scale(1) translateY(0); }
 
-        .panel-body h3 { font-size: 1.5rem; margin-bottom: 24px; color: var(--glow-blue); }
+        .modal-container h3 { font-size: 1.8rem; margin-bottom: 24px; color: #fff; font-weight: 800; }
+        .modal-container h3 span { color: var(--neon-cian); }
 
-        .input-box { margin-bottom: 20px; }
-        .input-box label { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 8px; letter-spacing: 1px; }
-        .input-box input, .input-box textarea {
-            width: 100%; padding: 14px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 12px; color: #fff; font-size: 1rem; outline: none;
+        .field-box { margin-bottom: 24px; }
+        .field-box label { display: block; font-size: 0.85rem; text-transform: uppercase; color: var(--neon-azul); margin-bottom: 10px; letter-spacing: 1px; font-weight: 700; }
+        .field-box input, .field-box textarea {
+            width: 100%; padding: 16px; background: rgba(0,0,0,0.4); border: 1px solid var(--vidro-borda); border-radius: 14px; color: #fff; font-size: 1.05rem; outline: none; transition: all 0.3s;
         }
-        .input-box textarea { height: 180px; resize: none; }
-        .input-box input:focus, .input-box textarea:focus { border-color: var(--glow-cyan); }
+        .field-box textarea { height: 200px; resize: none; }
+        .field-box input:focus, .field-box textarea:focus { border-color: var(--neon-cian); box-shadow: 0 0 15px rgba(0, 245, 212, 0.2); }
 
-        .panel-buttons { display: flex; gap: 12px; margin-top: 24px; }
-        .btn-action { flex: 1; padding: 14px; border-radius: 12px; border: none; cursor: pointer; font-weight: 700; font-size: 1rem; }
-        .btn-action.save { background: linear-gradient(90deg, var(--glow-blue), var(--glow-cyan)); color: #050b14; }
-        .btn-action.cancel { background: transparent; border: 1px solid var(--glass-border); color: var(--text-secondary); }
+        .modal-actions { display: flex; gap: 16px; margin-top: 30px; }
+        .btn-modal { flex: 1; padding: 16px; border-radius: 14px; border: none; cursor: pointer; font-weight: 700; font-size: 1.05rem; transition: all 0.2s; }
+        .btn-modal.confirm { background: linear-gradient(135deg, var(--neon-azul), var(--neon-cian)); color: #020617; }
+        .btn-modal.cancel { background: transparent; border: 1px solid var(--vidro-borda); color: var(--texto-suave); }
+        .btn-modal.cancel:hover { background: rgba(255,255,255,0.05); color: #fff; }
 
-        /* SEÇÃO DE GRID DE POSTS (FLEXBOX DINÂMICO) */
+        /* SEÇÃO DE GRID DE POSTS (FLEXBOX GRANDE E RESPONSIVO) */
         main {
-            max-width: 1200px;
+            max-width: 1300px;
             width: 100%;
             margin: 0 auto;
-            padding: 50px 24px;
+            padding: 40px 24px;
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
         }
 
-        /* CARD SEM FRONTEIRAS RÍGIDAS (CONCEITO DESIGN MINIMALISTA) */
+        /* CARDS MAIORES E ELABORADOS COM GLASSMORPHISM GLOW */
         article {
-            flex: 1 1 45%;
-            min-width: 320px;
-            background: var(--glass-base);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
+            flex: 1 1 100%; /* Inicia grande ocupando espaço de destaque */
+            background: var(--vidro-puro);
+            border: 1px solid var(--vidro-borda);
+            backdrop-filter: blur(16px);
+            border-radius: 28px;
             display: flex;
             flex-direction: column;
             position: relative;
-            padding: 40px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 45px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        article:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 245, 212, 0.4);
-            box-shadow: 0 20px 40px rgba(0, 245, 212, 0.05);
+        /* Quando houver mais de um, eles se dividem em duas colunas lindas no PC */
+        @media (min-width: 900px) {
+            article { flex: 1 1 45%; }
         }
 
-        .post-header {
+        article:hover {
+            transform: translateY(-8px);
+            border-color: var(--neon-azul);
+            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.15), var(--sombra-neon);
+        }
+
+        .post-top-meta {
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
-        .post-index {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--glow-cyan);
-            border: 1px solid rgba(0, 245, 212, 0.3);
-            padding: 4px 10px;
-            border-radius: 8px;
+        .badge-design {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #020617;
+            background: linear-gradient(135deg, var(--neon-azul), var(--neon-cian));
+            padding: 6px 14px;
+            border-radius: 10px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .post-meta-info {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        .meta-date {
+            font-size: 0.9rem;
+            color: var(--texto-suave);
         }
 
         article h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--text-primary);
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--texto-principal);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
         }
 
-        /* Área de conteúdo infinita sem quebras de layout */
-        .post-editorial {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
+        /* Área de conteúdo robusta perfeita para textos enormes */
+        .post-main-content {
+            font-size: 1.15rem;
+            line-height: 1.85;
+            color: var(--texto-suave);
             margin-bottom: 40px;
-            white-space: pre-line; /* Permite parágrafos imensos livremente */
+            white-space: pre-line; /* Mantém a formatação que você digitar inteira */
             flex-grow: 1;
         }
 
-        .post-interactive-row {
+        .post-footer-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 24px;
+            border-top: 1px solid rgba(56, 189, 248, 0.15);
+            padding-top: 28px;
             margin-top: auto;
         }
 
-        .author-tag {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .author-tag::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background-color: var(--glow-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--glow-cyan);
-        }
-
-        /* BOTÃO DE REAÇÃO INTEGRADO */
-        .interaction-pulse-btn {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9rem;
+        .author-identity {
+            font-size: 1.05rem;
             font-weight: 600;
+            color: var(--texto-principal);
             display: flex;
             align-items: center;
-            gap: 8px;
-            position: relative;
-            transition: all 0.3s;
+            gap: 10px;
         }
 
-        .interaction-pulse-btn:hover {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: var(--glow-blue);
-        }
-
-        .count-badge {
-            color: var(--glow-blue);
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Partículas Fluidas */
-        .ring-particle {
-            position: absolute;
-            width: 10px; height: 10px;
-            background: var(--glow-blue);
+        .author-identity-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-cian);
             border-radius: 50%;
-            pointer-events: none;
-            animation: eject 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-        }
-
-        @keyframes eject {
-            0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--mx), var(--my)) scale(0); opacity: 0; }
-        }
-
-        /* FOOTER */
-        footer {
-            max-width: 1200px;
-            width: 100%;
-            margin: auto auto 0 auto;
-            padding: 40px 24px;
+            box-shadow: 0 0 12px var(--neon-cian);
