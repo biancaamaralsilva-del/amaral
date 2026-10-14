@@ -1,294 +1,196 @@
 `<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog da Bianca Amaral</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <style>
+        /* Estilos adicionais para deixar o layout em tons de azul bem lindo */
+        :root {
+            --azul-escuro: #122a47;
+            --azul-medio: #183C63;
+            --azul-claro: #e6f0fa;
+            --azul-destaque: #3a86ff;
+            --branco: #ffffff;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+            margin: 0;
+            padding: 0;
+            max-width: 100vw;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 4px solid var(--azul-destaque);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            
+            background-color: var(--branco);
+            border: 2px solid var(--azul-medio);
+            border-radius: 12px; /* Cantos arredondados para um visual moderno */
+            margin: 16px;
+            padding: 24px;
+            gap: 16px;
+            
+            flex: 1 1 25%;
+            min-width: 280px; /* Garante que não esprema demais em telas pequenas */
+            box-shadow: 0 4px 6px rgba(24, 60, 99, 0.1); /* Sombra leve */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* Efeito lindo quando passa o mouse por cima do card */
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(24, 60, 99, 0.2);
+            border-color: var(--azul-destaque);
+        }
+
+        article h2 {
+            color: var(--azul-medio);
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        article p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #4a5568;
+            margin: 0;
+        }
+
+        /* Estilização do Botão de Curtir */
+        .btn-curtir {
+            background-color: var(--azul-claro);
+            border: 2px solid var(--azul-destaque);
+            color: var(--azul-medio);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            margin-top: auto; /* Empurra o botão sempre para o fim do card */
+        }
+
+        .btn-curtir:hover {
+            background-color: var(--azul-destaque);
+            color: var(--branco);
+        }
+
+        .btn-curtir.curtido {
+            background-color: #e63946;
+            border-color: #e63946;
+            color: var(--branco);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
 <body>
 
     <header>
         <h1>Blog da Bianca Amaral</h1>
-
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Sobre mim</a>
-            <a href="#">Postagens</a>
-            <a href="#">Contato</a>
-        </nav>
+        <p>Compartilhando ideias, códigos e muito CSS flexível! ✨</p>
     </header>
 
     <main>
-
+        <!-- Post 1 -->
         <article>
-            <h2>Meu primeiro post</h2>
-
-            <p>
-                Olá! Meu nome é Bianca Amaral e este é o meu blog.
-                Aqui vou compartilhar meus estudos, projetos e aprendizados.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
+            <h2>Explorando o Flexbox</h2>
+            <p>Hoje aprendemos a organizar posts lado a lado de forma totalmente responsiva com CSS. O layout ficou incrível!</p>
+            <button class="btn-curtir" onclick="curtirPost(this)">
+                💙 <span class="contador">0</span> Curtidas
             </button>
         </article>
 
+        <!-- Post 2 -->
         <article>
-            <h2>Aprendendo HTML</h2>
-
-            <p>
-                O HTML é utilizado para criar a estrutura das páginas
-                da internet. Com ele podemos adicionar títulos, textos,
-                imagens, links e outros elementos.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
+            <h2>Colaboração no Blog</h2>
+            <p>Adicionei novas postagens em parceria com o blog do Marcelo. Trabalhar em equipe deixa o projeto muito mais rico.</p>
+            <button class="btn-curtir" onclick="curtirPost(this)">
+                💙 <span class="contador">0</span> Curtidas
             </button>
         </article>
 
+        <!-- Post 3 -->
         <article>
-            <h2>Aprendendo CSS</h2>
-
-            <p>
-                O CSS é responsável pela aparência da página.
-                Podemos modificar cores, tamanhos, espaçamentos,
-                fontes e a disposição dos elementos.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
+            <h2>A Magia do Design Azul</h2>
+            <p>Escolher a paleta de cores certa muda tudo. Tons de azul transmitem confiança, clareza e profissionalismo.</p>
+            <button class="btn-curtir" onclick="curtirPost(this)">
+                💙 <span class="contador">0</span> Curtidas
             </button>
         </article>
-
-        <article>
-            <h2>Conhecendo o Flexbox</h2>
-
-            <p>
-                O Flexbox é uma ferramenta muito importante do CSS.
-                Ele permite organizar os elementos de forma flexível,
-                facilitando a criação de layouts responsivos.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
-            </button>
-        </article>
-
-        <article>
-            <h2>Organizando meu blog</h2>
-
-            <p>
-                Nesta etapa do projeto, utilizei margem, padding e gap
-                para melhorar o espaçamento entre os cards e deixar
-                o blog mais organizado.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
-            </button>
-        </article>
-
-        <article>
-            <h2>Posts responsivos</h2>
-
-            <p>
-                Com o uso de flex-wrap e flex, os posts conseguem
-                se adaptar ao tamanho da tela. Quando não há espaço,
-                os cards passam para a próxima linha.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
-            </button>
-        </article>
-
-        <article>
-            <h2>Meu projeto</h2>
-
-            <p>
-                Estou desenvolvendo este blog como parte das minhas
-                atividades de programação e colocando em prática
-                os conhecimentos de HTML e CSS.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
-            </button>
-        </article>
-
-        <article>
-            <h2>Trabalhando em colaboração</h2>
-
-            <p>
-                Também participei de atividades em colaboração com
-                outros colegas, adicionando novas postagens aos blogs
-                e compartilhando conhecimentos.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
-            </button>
-        </article>
-
-        <article>
-            <h2>Próximos passos</h2>
-
-            <p>
-                Ainda pretendo continuar melhorando o projeto,
-                adicionando novos conteúdos e aprimorando o visual
-                do meu blog.
-            </p>
-
-            <button class="curtir" onclick="curtir(this)">
-                ❤️ Curtir <span>0</span>
-            </button>
-        </article>
-
     </main>
 
     <footer>
-        <p>&copy; 2026 Bianca Amaral. Todos os direitos reservados.</p>
+        <p>&copy; 2026 - Desenvolvido com carinho por Bianca Amaral</p>
     </footer>
 
+    <!-- Script simples para fazer o botão de curtidas funcionar -->
     <script>
-        function curtir(botao) {
-            let contador = botao.querySelector("span");
-
-            let curtidas = Number(contador.textContent);
-
-            curtidas++;
-
-            contador.textContent = curtidas;
-
-            botao.classList.add("curtido");
+        function curtirPost(botao) {
+            const contadorElemento = botao.querySelector('.contador');
+            let curtidas = parseInt(contadorElemento.innerText);
+            
+            if (botao.classList.contains('curtido')) {
+                // Se já estava curtido, descurte
+                curtidas--;
+                contadorElemento.innerText = curtidas;
+                botao.classList.remove('curtido');
+                botao.innerHTML = `💙 <span class="contador">${curtidas}</span> Curtidas`;
+            } else {
+                // Se não estava curtido, adiciona a curtida
+                curtidas++;
+                contadorElemento.innerText = curtidas;
+                botao.classList.add('curtido');
+                botao.innerHTML = `❤️ <span class="contador">${curtidas}</span> Curtido!`;
+            }
         }
     </script>
-
 </body>
-
 </html>
-:::
-
-style.css
-:::writing{variant="document" id="27491" title="style.css — Blog com Curtidas"}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    max-width: 100vw;
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #183C63;
-}
-
-header {
-    background-color: #183C63;
-    color: white;
-    padding: 24px;
-    text-align: center;
-}
-
-header h1 {
-    margin-bottom: 16px;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-article {
-    display: flex;
-    border: 1px solid #183C63;
-    margin: 16px;
-    gap: 16px;
-    padding: 16px;
-    flex: 1 1 25%;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 8px;
-    min-height: 250px;
-}
-
-article h2 {
-    color: #183C63;
-}
-
-article p {
-    color: #333;
-    line-height: 1.6;
-}
-
-.curtir {
-    border: none;
-    background-color: #f0f0f0;
-    color: #183C63;
-    padding: 10px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.2s;
-}
-
-.curtir:hover {
-    background-color: #ffd6de;
-    transform: scale(1.05);
-}
-
-.curtir.curtido {
-    background-color: #ffb6c1;
-    color: #b00020;
-}
-
-footer {
-    background-color: #183C63;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-    article {
-        flex: 1 1 45%;
-    }
-}
-
-@media (max-width: 480px) {
-    article {
-        flex: 1 1 100%;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
