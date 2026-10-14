@@ -1,67 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bianca Amaral | Creative Blog</title>
+    <title>Bianca Amaral // Tech Nexus Blog</title>
     <style>
-        /* VARIÁVEIS DE DESIGN E CORES (SUPORTE A TEMAS) */
-        :root[data-theme="light"] {
-            --bg-principal: #f4f7fc;
-            --bg-card: #ffffff;
-            --topo-gradiente: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            --texto-titulo: #0f172a;
-            --texto-corpo: #334155;
-            --texto-suave: #64748b;
-            --azul-marca: #2563eb;
-            --azul-hover: #1d4ed8;
-            --azul-suave: rgba(37, 99, 235, 0.08);
-            --borda: rgba(37, 99, 235, 0.1);
-            --sombra: 0 10px 30px rgba(15, 23, 42, 0.04);
-            --sombra-hover: 0 20px 40px rgba(15, 23, 42, 0.1);
+        /* CORE DESIGN SYSTEM (Tons de Azul Tecnológico) */
+        :root[data-theme="dark"] {
+            --bg-base: #030712;
+            --bg-surface: #0b1329;
+            --bg-surface-elevated: #1c2541;
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.15);
+            --secondary: #818cf8;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(56, 189, 248, 0.12);
+            --gradient-header: linear-gradient(135deg, #020617 0%, #0b1329 100%);
+            --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
-        :root[data-theme="dark"] {
-            --bg-principal: #0b1329;
-            --bg-card: #1c2541;
-            --topo-gradiente: linear-gradient(135deg, #010514 0%, #0b1329 100%);
-            --texto-titulo: #f8fafc;
-            --texto-corpo: #cbd5e1;
-            --texto-suave: #94a3b8;
-            --azul-marca: #38bdf8;
-            --azul-hover: #0ea5e9;
-            --azul-suave: rgba(56, 189, 248, 0.12);
-            --borda: rgba(56, 189, 248, 0.15);
-            --sombra: 0 10px 30px rgba(0, 0, 0, 0.3);
-            --sombra-hover: 0 20px 40px rgba(0, 0, 0, 0.5);
+        :root[data-theme="light"] {
+            --bg-base: #f0f4f9;
+            --bg-surface: #ffffff;
+            --bg-surface-elevated: #e2e8f0;
+            --primary: #0284c7;
+            --primary-glow: rgba(2, 132, 199, 0.1);
+            --secondary: #4f46e5;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: rgba(2, 132, 199, 0.15);
+            --gradient-header: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            --shadow-premium: 0 20px 40px rgba(15, 23, 42, 0.06);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'JetBrains Mono', system-ui, -apple-system, sans-serif;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
         }
 
         body {
-            background-color: var(--bg-principal);
-            color: var(--texto-corpo);
+            background-color: var(--bg-base);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
-        /* BOTÃO INTERATIVO DE ALTERAR TEMA */
-        .theme-toggle {
+        /* HEADER & SISTEMA DE NAVEGAÇÃO */
+        header {
+            background: var(--gradient-header);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .top-controls {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            padding: 10px 16px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-control {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 10px 18px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
@@ -69,248 +81,266 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            z-index: 10;
-        }
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
         }
 
-        /* CABEÇALHO MAGNÍFICO */
-        header {
-            background: var(--topo-gradiente);
-            color: #ffffff;
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            box-shadow: var(--sombra);
-        }
-
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .btn-control:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px var(--primary);
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-            background: linear-gradient(to right, #ffffff, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+        }
+
+        header h1 span {
+            color: var(--primary);
         }
 
         header p {
-            font-size: 1.25rem;
-            color: #93c5fd;
-            font-weight: 300;
-            line-height: 1.6;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* LAYOUT MAIN GRID/FLEXBOX RESPONSIVO */
+        /* DASHBOARD DE CRIAÇÃO (EDITOR DE POSTS INTEGRADO) */
+        .editor-section {
+            max-width: 800px;
+            width: 90%;
+            margin: -40px auto 40px auto;
+            background: var(--bg-surface);
+            border: 2px solid var(--primary);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow-premium);
+            display: none; /* Ativado via botão */
+            position: relative;
+            z-index: 5;
+        }
+
+        .editor-section.active {
+            display: block;
+            animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .editor-section h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: #030712;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+        }
+
+        /* GRID CENTRAL DE POSTAGENS */
         main {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-            padding: 50px 20px;
-            max-width: 1240px;
+            max-width: 1400px;
             width: 100%;
             margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 35px;
             flex-grow: 1;
         }
 
-        /* CARD DE POST ULTRA MODERNOS */
+        @media (max-width: 500px) {
+            main { grid-template-columns: 1fr; }
+        }
+
+        /* CARDS ULTRA ELABORADOS V2 */
         article {
-            background-color: var(--bg-card);
-            border-radius: 24px;
-            overflow: hidden;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
             display: flex;
             flex-direction: column;
-            box-shadow: var(--sombra);
-            border: 1px solid var(--borda);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
             position: relative;
         }
 
         article:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-hover);
-            border-color: var(--azul-marca);
+            transform: translateY(-10px) scale(1.01);
+            border-color: var(--primary);
+            box-shadow: 0 25px 50px rgba(58, 134, 255, 0.15);
         }
 
-        /* Banner visual interno com formas fluidas */
-        .card-header-art {
-            height: 12px;
-            background: linear-gradient(90deg, var(--azul-marca), #a855f7);
-        }
-
-        .card-body {
-            padding: 32px;
+        .card-inner {
+            padding: 35px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .card-meta {
+        .card-top {
             display: flex;
-            gap: 12px;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
-        .tag {
-            background-color: var(--azul-suave);
-            color: var(--azul-marca);
-            padding: 6px 14px;
-            border-radius: 12px;
+        .tag-tech {
+            background: var(--primary-glow);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        .date {
+        .post-time {
             font-size: 0.85rem;
-            color: var(--texto-suave);
+            color: var(--text-muted);
         }
 
         article h2 {
-            font-size: 1.5rem;
-            color: var(--texto-titulo);
-            margin-bottom: 14px;
+            font-size: 1.7rem;
+            color: var(--text-main);
+            margin-bottom: 16px;
             line-height: 1.3;
-            font-weight: 700;
         }
 
-        /* Área de Texto otimizada para conteúdos grandes */
-        .card-text {
+        /* Textos sem limite de tamanho - expansíveis */
+        .post-body-text {
             font-size: 1rem;
-            line-height: 1.7;
-            color: var(--texto-corpo);
-            margin-bottom: 28px;
+            line-height: 1.75;
+            color: var(--text-muted);
+            margin-bottom: 30px;
             flex-grow: 1;
+            white-space: pre-line; /* Preserva quebras de linhas que você digitar */
         }
 
-        /* RODAPÉ DO CARD / SISTEMA DE INTERAÇÃO */
-        .card-footer {
-            border-top: 1px solid var(--borda);
+        .card-bottom-bar {
+            border-top: 1px solid var(--border-color);
             padding-top: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .author-box {
+        .profile-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .author-avatar {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #a855f7, var(--azul-marca));
+        .avatar-glow {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .author-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--texto-titulo);
-        }
-
-        /* BOTÃO DE CURTIR PREMIUM COM ANIMAÇÃO COLOIDAL */
-        .btn-like-premium {
-            background-color: var(--azul-suave);
-            border: 1px solid transparent;
-            color: var(--azul-marca);
-            padding: 10px 22px;
-            border-radius: 16px;
-            cursor: pointer;
-            font-weight: 700;
+            color: #fff;
+            font-weight: 800;
             font-size: 0.9rem;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .profile-info h4 {
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        /* SISTEMA DE INTERAÇÃO MATRIX LIKE */
+        .btn-like-cyber {
+            background: var(--primary-glow);
+            border: 1px solid var(--border-color);
+            color: var(--primary);
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             position: relative;
-            overflow: visible;
         }
 
-        .btn-like-premium:hover {
-            background-color: rgba(239, 68, 68, 0.1);
+        .btn-like-cyber:hover {
+            background: rgba(239, 68, 68, 0.1);
             color: #ef4444;
-            border-color: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
         }
 
-        .like-number {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 0.8rem;
+        .like-counter-bubble {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 10px;
+            border-radius: 30px;
+            font-size: 0.85rem;
         }
 
-        /* Partículas flutuantes ao curtir */
-        .heart-particle {
+        /* Efeito de partículas tridimensionais */
+        .pop-particle {
             position: absolute;
-            color: #ef4444;
             pointer-events: none;
-            animation: flyUp 0.8s ease-out forwards;
-            font-size: 1.5rem;
+            animation: burst 0.7s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            font-size: 1.4rem;
         }
 
-        @keyframes flyUp {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-60px) translateX(var(--x-bounce)) scale(0.5); opacity: 0; }
+        @keyframes burst {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) scale(0.3); opacity: 0; }
         }
 
-        /* RODAPÉ DO SITE */
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* FOOTER */
         footer {
-            background-color: var(--bg-card);
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             font-size: 0.95rem;
-            color: var(--texto-suave);
-            border-top: 1px solid var(--borda);
+            color: var(--text-muted);
+            margin-top: auto;
         }
 
-        footer strong {
-            color: var(--azul-marca);
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <button class="theme-toggle" onclick="alternarTema()">
-            <span id="theme-icon">🌙</span> <span id="theme-text">Modo Escuro</span>
-        </button>
-        <div class="header-content">
-            <h1>Blog da Bianca Amaral</h1>
-            <p>Ideias originais, arquitetura de software e soluções visuais elegantes construídas linha por linha.</p>
-        </div>
-    </header>
-
-    <main>
-        <!-- POST 1 -->
-        <article>
-            <div class="card-header-art"></div>
-            <div class="card-body">
-                <div class="card-meta">
-                    <span class="tag">Engenharia</span>
-                    <span class="date">14 de Outubro</span>
-                </div>
-                <h2>Construindo Arquiteturas com CSS Flexbox</h2>
-                <div class="card-text">
-                    O segredo por trás de interfaces excepcionais reside na flexibilidade. Nesta jornada técnica, reformulamos completamente a distribuição estrutural das postagens removendo travas rígidas de tamanho. Aplicando conceitos avançados de crescimento e encolhimento proporcional, criamos um ecossistema visual fluido e adaptável a telas de qualquer proporção ou densidade de pixels.
-                </div>
-                <div class="card-footer">
-                    <div class="author-box">
-                        <div class="author-avatar">BA</div>
-                        <span class="author-name">Bianca</span>
-                    </div>
-                    <button class="btn-like-premium" onclick="soltarCoracao(this)">
+        footer b {
+            color: var(--primary);
