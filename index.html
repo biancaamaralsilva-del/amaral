@@ -3,131 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog da Bianca Amaral</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Blog Oficial | Bianca Amaral</title>
     <style>
-        /* Estilos adicionais para deixar o layout em tons de azul bem lindo */
+        /* PALETA DE CORES PREMIUM (Tons de Azul) */
         :root {
-            --azul-escuro: #122a47;
-            --azul-medio: #183C63;
-            --azul-claro: #e6f0fa;
-            --azul-destaque: #3a86ff;
+            --azul-profundo: #0a192f;
+            --azul-marinho: #172a45;
+            --azul-medio: #3066be;
+            --azul-celeste: #b4c5e4;
+            --azul-claro-bg: #f0f4f8;
+            --azul-cyan: #00f5d4;
             --branco: #ffffff;
+            --texto-escuro: #2d3748;
+            --texto-suave: #718096;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--azul-claro);
-            color: var(--azul-escuro);
-            margin: 0;
-            padding: 0;
-            max-width: 100vw;
-            box-sizing: border-box;
+            background-color: var(--azul-claro-bg);
+            color: var(--texto-escuro);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* CABEÇALHO COM GRADIENTE E DESIGN MODERNO */
         header {
-            background-color: var(--azul-escuro);
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-marinho) 100%);
             color: var(--branco);
             text-align: center;
-            padding: 40px 20px;
-            border-bottom: 4px solid var(--azul-destaque);
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(10, 25, 47, 0.15);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--azul-medio), var(--azul-cyan));
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
-            margin: 10px 0 0 0;
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.2rem;
+            color: var(--azul-celeste);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
         }
 
+        /* CONTAINER PRINCIPAL FLEXBOX */
         main {
             display: flex;
             flex-wrap: wrap;
-            padding: 20px;
-            justify-content: center;
+            gap: 30px;
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            justify-content: center;
         }
 
+        /* CARDS DE POSTAGEM ULTRA ELABORADOS */
         article {
+            background-color: var(--branco);
+            border-radius: 16px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            
-            background-color: var(--branco);
-            border: 2px solid var(--azul-medio);
-            border-radius: 12px; /* Cantos arredondados para um visual moderno */
-            margin: 16px;
-            padding: 24px;
-            gap: 16px;
-            
-            flex: 1 1 25%;
-            min-width: 280px; /* Garante que não esprema demais em telas pequenas */
-            box-shadow: 0 4px 6px rgba(24, 60, 99, 0.1); /* Sombra leve */
-            transition: transform 0.2s, box-shadow 0.2s;
+            flex: 1 1 350px;
+            max-width: 360px;
+            box-shadow: 0 10px 30px rgba(23, 42, 69, 0.06);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(48, 102, 190, 0.1);
         }
 
-        /* Efeito lindo quando passa o mouse por cima do card */
         article:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(24, 60, 99, 0.2);
-            border-color: var(--azul-destaque);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(23, 42, 69, 0.12);
+            border-color: var(--azul-medio);
+        }
+
+        /* Imagem decorativa no topo do card */
+        .card-banner {
+            height: 160px;
+            background: linear-gradient(45deg, var(--azul-marinho), var(--azul-medio));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 4rem;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-tag {
+            background-color: rgba(48, 102, 190, 0.1);
+            color: var(--azul-medio);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .card-date {
+            font-size: 0.8rem;
+            color: var(--texto-suave);
         }
 
         article h2 {
-            color: var(--azul-medio);
-            margin: 0;
             font-size: 1.4rem;
+            color: var(--azul-profundo);
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
 
-        article p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #4a5568;
-            margin: 0;
+        /* Área de texto expandida para você escrever bastante */
+        .card-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--texto-escuro);
+            margin-bottom: 20px;
+            flex-grow: 1; /* Faz o texto ocupar o espaço necessário */
         }
 
-        /* Estilização do Botão de Curtir */
-        .btn-curtir {
-            background-color: var(--azul-claro);
-            border: 2px solid var(--azul-destaque);
-            color: var(--azul-medio);
-            padding: 8px 16px;
-            border-radius: 20px;
+        /* ÁREA DE INTERAÇÃO (Curtidas) */
+        .card-footer {
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-like {
+            background-color: var(--azul-claro-bg);
+            border: none;
+            color: var(--azul-marinho);
+            padding: 10px 20px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.2s;
-            margin-top: auto; /* Empurra o botão sempre para o fim do card */
+            transition: all 0.2s ease;
         }
 
-        .btn-curtir:hover {
-            background-color: var(--azul-destaque);
-            color: var(--branco);
+        .btn-like:hover {
+            background-color: #ffe3e3;
+            color: #e63946;
+            transform: scale(1.05);
         }
 
-        .btn-curtir.curtido {
-            background-color: #e63946;
-            border-color: #e63946;
-            color: var(--branco);
+        .btn-like:active {
+            transform: scale(0.95);
         }
 
+        .like-count {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* RODAPÉ ELEGANTE */
         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--azul-escuro);
+            background-color: var(--azul-profundo);
             color: var(--branco);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: auto;
             font-size: 0.9rem;
-            margin-top: 40px;
+            border-top: 4px solid var(--azul-medio);
+        }
+
+        footer span {
+            color: var(--azul-cyan);
+            font-weight: 600;
         }
     </style>
 </head>
@@ -135,62 +223,75 @@
 
     <header>
         <h1>Blog da Bianca Amaral</h1>
-        <p>Compartilhando ideias, códigos e muito CSS flexível! ✨</p>
+        <p>Espaço digital sobre desenvolvimento web, criatividade e códigos impecáveis.</p>
     </header>
 
     <main>
-        <!-- Post 1 -->
+        <!-- POST 1: Layout Flexbox -->
         <article>
-            <h2>Explorando o Flexbox</h2>
-            <p>Hoje aprendemos a organizar posts lado a lado de forma totalmente responsiva com CSS. O layout ficou incrível!</p>
-            <button class="btn-curtir" onclick="curtirPost(this)">
-                💙 <span class="contador">0</span> Curtidas
-            </button>
+            <div class="card-banner">CSS</div>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="card-tag">Tecnologia</span>
+                    <span class="card-date">Hoje</span>
+                </div>
+                <h2>Dominando a Flexibilidade do Flexbox</h2>
+                <div class="card-text">
+                    Nesta semana, mergulhamos de cabeça no universo do CSS Flexbox para solucionar problemas reais de layout. Conseguimos ajustar o espaçamento das páginas e garantir que as seções se comportem perfeitamente em telas cheias e dispositivos móveis usando propriedades avançadas. O resultado é um sistema dinâmico, moderno e extremamente prazeroso de navegar.
+                </div>
+                <div class="card-footer">
+                    <button class="btn-like" onclick="adicionarCurtida(this)">
+                        ❤️ Curtir <span class="like-count">0</span>
+                    </button>
+                </div>
+            </div>
         </article>
 
-        <!-- Post 2 -->
+        <!-- POST 2: Parceria Marcelo -->
         <article>
-            <h2>Colaboração no Blog</h2>
-            <p>Adicionei novas postagens em parceria com o blog do Marcelo. Trabalhar em equipe deixa o projeto muito mais rico.</p>
-            <button class="btn-curtir" onclick="curtirPost(this)">
-                💙 <span class="contador">0</span> Curtidas
-            </button>
+            <div class="card-banner">DEV</div>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="card-tag">Colaboração</span>
+                    <span class="card-date">Ontem</span>
+                </div>
+                <h2>Parceria em Código com o Marcelo</h2>
+                <div class="card-text">
+                    O desenvolvimento web ganha uma nova cor quando trabalhamos em equipe. Integramos nossas postagens diretamente com o projeto do Marcelo, compartilhando boas práticas e revisando juntos a nossa lista de melhorias visuais. Essa troca de experiência nos permitiu identificar gargalos no código antigo e aplicar soluções muito mais robustas.
+                </div>
+                <div class="card-footer">
+                    <button class="btn-like" onclick="adicionarCurtida(this)">
+                        ❤️ Curtir <span class="like-count">0</span>
+                    </button>
+                </div>
+            </div>
         </article>
 
-        <!-- Post 3 -->
+        <!-- POST 3: Novo Espaço para você escrever livremente -->
         <article>
-            <h2>A Magia do Design Azul</h2>
-            <p>Escolher a paleta de cores certa muda tudo. Tons de azul transmitem confiança, clareza e profissionalismo.</p>
-            <button class="btn-curtir" onclick="curtirPost(this)">
-                💙 <span class="contador">0</span> Curtidas
-            </button>
+            <div class="card-banner">TXT</div>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="card-tag">Novidades</span>
+                    <span class="card-date">Destaque</span>
+                </div>
+                <h2>Espaço Expandido de Conteúdo</h2>
+                <div class="card-text">
+                    Este terceiro bloco foi totalmente otimizado para que você possa digitar textos muito maiores sem quebrar ou desalinhar a estrutura visual do blog. O Flexbox distribui o espaço vertical automaticamente, mantendo o botão de curtidas perfeitamente alinhado na base inferior do card, independentemente do tamanho da sua história!
+                </div>
+                <div class="card-footer">
+                    <button class="btn-like" onclick="adicionarCurtida(this)">
+                        ❤️ Curtir <span class="like-count">0</span>
+                    </button>
+                </div>
+            </div>
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Desenvolvido com carinho por Bianca Amaral</p>
+        <p>Projeto criado com orgulho por <span>Bianca Amaral</span> &copy; 2026</p>
     </footer>
 
-    <!-- Script simples para fazer o botão de curtidas funcionar -->
+    <!-- SCRIPT DE CURTIDAS QUE ACUMULAM INFINITAMENTE -->
     <script>
-        function curtirPost(botao) {
-            const contadorElemento = botao.querySelector('.contador');
-            let curtidas = parseInt(contadorElemento.innerText);
-            
-            if (botao.classList.contains('curtido')) {
-                // Se já estava curtido, descurte
-                curtidas--;
-                contadorElemento.innerText = curtidas;
-                botao.classList.remove('curtido');
-                botao.innerHTML = `💙 <span class="contador">${curtidas}</span> Curtidas`;
-            } else {
-                // Se não estava curtido, adiciona a curtida
-                curtidas++;
-                contadorElemento.innerText = curtidas;
-                botao.classList.add('curtido');
-                botao.innerHTML = `❤️ <span class="contador">${curtidas}</span> Curtido!`;
-            }
-        }
-    </script>
-</body>
-</html>
+        function adicionarCurtida(botao) {
