@@ -1,386 +1,671 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Dev - Edição Azul Bebê Pro</title>
 
-    <!-- Fonte moderna do Google Fonts -->
+    <meta name="description" content="Blog Dev: aprenda sobre CSS, Flexbox, responsividade e desenvolvimento web.">
+
+    <title>Blog Dev | Tecnologia & Desenvolvimento</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Ícones FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ==========================================
-           VARIÁVEIS DE CORES & ESTILOS (AZUL BEBÊ)
-           ========================================== */
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
         :root {
-            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
-            --card-bg: rgba(255, 255, 255, 0.75);
-            --card-border: rgba(186, 230, 253, 0.8);
-            --primary-blue: #0284c7;
-            --dark-blue: #0369a1;
-            --text-dark: #0c4a6e;
-            --text-muted: #334155;
-            --badge-bg: #38bdf8;
-            --heart-color: #ff4757;
-            --shadow-soft: 0 20px 30px -10px rgba(14, 165, 233, 0.2);
-            --shadow-hover: 0 25px 35px -5px rgba(2, 132, 199, 0.35);
+            --blue: #0284c7;
+            --blue-dark: #075985;
+            --blue-light: #7dd3fc;
+            --background: #e0f2fe;
+            --text: #0c4a6e;
+            --muted: #475569;
+            --white: #ffffff;
+            --heart: #ff4757;
+
+            --shadow:
+                0 15px 35px rgba(2, 132, 199, 0.13);
+
+            --transition: 0.3s ease;
         }
 
-        /* ==========================================
-           RESET & BODY RESPONSIVO
-           ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            max-width: 100vw;
             min-height: 100vh;
-            background: var(--bg-gradient);
-            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+
+            background:
+                radial-gradient(circle at 10% 10%, #ffffff 0, transparent 30%),
+                linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc);
+
             padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        /* ==========================================
-           CABEÇALHO NOVO E ELEGANTE
-           ========================================== */
+        button {
+            font: inherit;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
         .header-blog {
+            max-width: 850px;
+            margin: 0 auto 55px;
             text-align: center;
-            max-width: 800px;
-            margin-bottom: 48px;
-            position: relative;
+            animation: aparecer 0.8s ease;
         }
 
-        .header-blog .badge {
+        .badge {
             display: inline-block;
-            background: var(--badge-bg);
-            color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 6px 16px;
+            padding: 8px 18px;
+            margin-bottom: 20px;
+
+            color: white;
+            background: var(--blue);
+
             border-radius: 50px;
-            letter-spacing: 1.5px;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
-            margin-bottom: 16px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            box-shadow: 0 5px 15px rgba(2, 132, 199, 0.25);
         }
 
         .header-blog h1 {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
-            color: var(--dark-blue);
             line-height: 1.2;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
+            letter-spacing: -2px;
+
+            color: var(--blue-dark);
+            margin-bottom: 18px;
+        }
+
+        .header-blog h1 span {
+            color: var(--blue);
         }
 
         .header-blog p {
-            color: var(--primary-blue);
-            font-size: 1.15rem;
-            font-weight: 600;
+            max-width: 600px;
+            margin: auto;
+
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
         }
 
-        /* ==========================================
-           CONTAINER PRINCIPAL (FLEXBOX + RESPONSIVO)
-           ========================================== */
+        /* =========================
+           LINHA DECORATIVA
+        ========================= */
+
+        .decoracao {
+            width: 65px;
+            height: 5px;
+            margin: 25px auto 0;
+
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* =========================
+           ÁREA DOS POSTS
+        ========================= */
+
         main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
             width: 100%;
             max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+
+            gap: 28px;
         }
 
-        /* ==========================================
-           CARDS REDESENHADOS (GLASSMORPHISM 3D)
-           ========================================== */
+        /* =========================
+           CARDS
+        ========================= */
+
         article {
+            position: relative;
+
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
-            justify-content: space-between;
-            
-            flex: 1 1 280px;
-            max-width: 360px;
-            padding: 24px;
-            
-            background: var(--card-bg);
+
+            padding: 20px;
+            min-width: 0;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+
+            box-shadow: var(--shadow);
+
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 2px solid var(--card-border);
-            border-radius: 24px;
-            box-shadow: var(--shadow-soft);
-            
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
+
             overflow: hidden;
+
+            transition: transform var(--transition),
+                        box-shadow var(--transition);
         }
 
         article:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: #38bdf8;
-            box-shadow: var(--shadow-hover);
-            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-9px);
+
+            box-shadow:
+                0 25px 45px rgba(2, 132, 199, 0.22);
         }
 
-        /* Tag de Categoria */
+        /* =========================
+           CATEGORIA
+        ========================= */
+
         .card-tag {
             position: absolute;
-            top: 36px;
-            right: 36px;
-            background: var(--dark-blue);
-            color: #ffffff;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(3, 105, 161, 0.3);
+            top: 32px;
+            right: 32px;
             z-index: 2;
+
+            padding: 7px 12px;
+
+            background: var(--blue-dark);
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Imagem da Capa */
+        /* =========================
+           IMAGENS
+        ========================= */
+
         .img-container {
             width: 100%;
             height: 190px;
-            border-radius: 16px;
+
             overflow: hidden;
-            margin-bottom: 16px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+            border-radius: 16px;
+
+            margin-bottom: 22px;
         }
 
-        article img {
+        .img-container img {
             width: 100%;
             height: 100%;
+
             object-fit: cover;
+
             transition: transform 0.5s ease;
         }
 
-        article:hover img {
+        article:hover .img-container img {
             transform: scale(1.08);
         }
 
-        /* Títulos e Textos */
+        /* =========================
+           TEXTOS
+        ========================= */
+
+        .post-time {
+            display: block;
+            margin-bottom: 9px;
+
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
         article h2 {
-            color: var(--dark-blue);
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            line-height: 1.3;
+            color: var(--blue-dark);
+
+            font-size: 1.15rem;
+            line-height: 1.5;
+
+            margin-bottom: 12px;
         }
 
         article p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            color: var(--muted);
+
+            font-size: 0.88rem;
+            line-height: 1.8;
+
+            margin-bottom: 25px;
         }
 
-        /* ==========================================
-           BOTÃO DE CURTIR REDESENHADO COM ANIMAÇÃO
-           ========================================== */
+        /* =========================
+           BOTÃO CURTIR
+        ========================= */
+
         .card-footer {
-            width: 100%;
-            padding-top: 12px;
-            border-top: 1px solid rgba(186, 230, 253, 0.5);
+            margin-top: auto;
+            padding-top: 15px;
+
+            border-top: 1px solid #dbeafe;
         }
 
         .like-btn {
             width: 100%;
-            background: #f0f9ff;
-            color: var(--primary-blue);
-            border: 2px solid #7dd3fc;
-            padding: 12px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
+
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: all 0.3s ease;
-        }
 
-        .like-btn i {
-            font-size: 1.2rem;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 13px;
+
+            color: var(--blue-dark);
+            background: #f0f9ff;
+
+            border: 2px solid var(--blue-light);
+            border-radius: 50px;
+
+            font-weight: 700;
+            cursor: pointer;
+
+            transition: all var(--transition);
         }
 
         .like-btn:hover {
             background: #e0f2fe;
-            border-color: #38bdf8;
             transform: translateY(-2px);
         }
 
-        /* Estado quando acionado (Curtido) */
-        .like-btn.curtido {
-            background: var(--primary-blue);
-            color: #ffffff;
-            border-color: var(--primary-blue);
-            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
+        .like-btn:focus-visible {
+            outline: 3px solid var(--blue-dark);
+            outline-offset: 4px;
         }
 
-        .like-btn.curtido i {
-            color: var(--heart-color);
+        .heart {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .like-btn.curtido {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        .like-btn.curtido .heart {
+            color: var(--heart);
             transform: scale(1.3);
         }
 
-        /* ==========================================
-           RODAPÉ MODERNIZADO
-           ========================================== */
+        .like-count {
+            font-weight: 800;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
         .share-box {
-            margin-top: 48px;
+            max-width: 650px;
+            margin: 60px auto 0;
+
+            padding: 35px 25px;
+
             text-align: center;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 2px dashed #38bdf8;
-            border-radius: 20px;
-            padding: 24px 32px;
-            max-width: 500px;
-            box-shadow: var(--shadow-soft);
+
+            background: rgba(255, 255, 255, 0.8);
+
+            border: 2px dashed var(--blue-light);
+            border-radius: 24px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .share-box .rocket {
+            font-size: 35px;
+            margin-bottom: 12px;
         }
 
         .share-box h3 {
-            color: var(--dark-blue);
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 6px;
+            color: var(--blue-dark);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
         }
 
         .share-box p {
-            color: var(--text-muted);
+            color: var(--muted);
             font-size: 0.9rem;
+            line-height: 1.8;
         }
 
-        /* Ajustes Responsivos */
-        @media (max-width: 600px) {
-            .header-blog h1 {
-                font-size: 2rem;
+        .footer-copy {
+            margin-top: 35px;
+            text-align: center;
+
+            color: var(--blue-dark);
+            font-size: 12px;
+        }
+
+        /* =========================
+           ANIMAÇÃO
+        ========================= */
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
             }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 600px) {
+            body {
+                padding: 30px 16px;
+            }
+
+            .header-blog {
+                margin-bottom: 35px;
+            }
+
+            .header-blog h1 {
+                letter-spacing: -1px;
+            }
+
+            main {
+                gap: 20px;
+            }
+
             article {
-                flex: 1 1 100%;
+                padding: 17px;
+            }
+
+            .img-container {
+                height: 210px;
+            }
+
+            .share-box {
+                margin-top: 40px;
+                padding: 28px 18px;
+            }
+        }
+
+        /* Respeita usuários que preferem menos animações */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- CABEÇALHO -->
     <header class="header-blog">
-        <span class="badge">Projeto Dev</span>
-        <h1>Melhorias de Layout & Flexbox</h1>
-        <p>Design interativo em Azul Bebê com estrutura responsiva</p>
+
+        <span class="badge">✦ Projeto Dev</span>
+
+        <h1>
+            Explorando o Mundo do
+            <span>Desenvolvimento Web</span>
+        </h1>
+
+        <p>
+            Um espaço para compartilhar conhecimentos,
+            aprender tecnologias e descobrir novas possibilidades
+            no universo da programação.
+        </p>
+
+        <div class="decoracao"></div>
+
     </header>
 
-    <!-- Grid de Posts -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main>
 
-        <!-- Post 1 -->
+        <!-- POST 1 -->
         <article>
+
             <span class="card-tag">CSS Flexbox</span>
+
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=500&q=80" alt="Flexbox Layout">
+                <img
+                    src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=700&q=80"
+                    alt="Estação de trabalho para desenvolvimento web"
+                    loading="lazy"
+                >
             </div>
-            <h2>[00:51] Largura Total da Página</h2>
-            <p>Configuração do body com max-width: 100vw para permitir que a interface ocupe a largura completa da tela visível.</p>
+
+            <span class="post-time">01 • 00:51</span>
+
+            <h2>Largura Total da Página</h2>
+
+            <p>
+                Aprenda a configurar o body utilizando CSS
+                para aproveitar melhor o espaço disponível
+                e construir interfaces modernas.
+            </p>
+
             <div class="card-footer">
-                <button class="like-btn" onclick="curtir(this)">
-                    <i class="fa-regular fa-heart"></i>
-                    <span>Curtir</span>
+                <button class="like-btn" type="button"
+                    aria-pressed="false" aria-label="Curtir postagem">
+
+                    <span class="heart" aria-hidden="true">♡</span>
+                    <span class="like-label">Curtir</span>
                     <span class="like-count">18</span>
+
                 </button>
             </div>
+
         </article>
 
-        <!-- Post 2 -->
+        <!-- POST 2 -->
         <article>
+
             <span class="card-tag">Estrutura</span>
+
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" alt="Código CSS">
+                <img
+                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=700&q=80"
+                    alt="Código de programação em uma tela"
+                    loading="lazy"
+                >
             </div>
-            <h2>[02:27] Organização dos Posts</h2>
-            <p>Uso do display: flex no container principal junto com propriedades de espaçamento (gap, margin e padding).</p>
+
+            <span class="post-time">02 • 02:27</span>
+
+            <h2>Organização dos Posts</h2>
+
+            <p>
+                Descubra como utilizar display flex,
+                gap, margin e padding para organizar
+                elementos de maneira eficiente.
+            </p>
+
             <div class="card-footer">
-                <button class="like-btn" onclick="curtir(this)">
-                    <i class="fa-regular fa-heart"></i>
-                    <span>Curtir</span>
+                <button class="like-btn" type="button"
+                    aria-pressed="false" aria-label="Curtir postagem">
+
+                    <span class="heart" aria-hidden="true">♡</span>
+                    <span class="like-label">Curtir</span>
                     <span class="like-count">32</span>
+
                 </button>
             </div>
+
         </article>
 
-        <!-- Post 3 -->
+        <!-- POST 3 -->
         <article>
+
             <span class="card-tag">Responsividade</span>
+
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80" alt="Design Responsivo">
+                <img
+                    src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=700&q=80"
+                    alt="Representação visual de tecnologia digital"
+                    loading="lazy"
+                >
             </div>
-            <h2>[02:23] Quebras Automáticas</h2>
-            <p>Implementação do flex-wrap: wrap para garantir a quebra de linha suave dos cards em telas menores.</p>
+
+            <span class="post-time">03 • 02:23</span>
+
+            <h2>Quebras Automáticas</h2>
+
+            <p>
+                Entenda como criar layouts responsivos
+                que se adaptam automaticamente a
+                diferentes tamanhos de tela.
+            </p>
+
             <div class="card-footer">
-                <button class="like-btn" onclick="curtir(this)">
-                    <i class="fa-regular fa-heart"></i>
-                    <span>Curtir</span>
+                <button class="like-btn" type="button"
+                    aria-pressed="false" aria-label="Curtir postagem">
+
+                    <span class="heart" aria-hidden="true">♡</span>
+                    <span class="like-label">Curtir</span>
                     <span class="like-count">45</span>
+
                 </button>
             </div>
+
         </article>
 
-        <!-- Post 4 -->
+        <!-- POST 4 -->
         <article>
+
             <span class="card-tag">Alinhamento</span>
+
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80" alt="Alinhamento">
+                <img
+                    src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=700&q=80"
+                    alt="Notebook utilizado para programação"
+                    loading="lazy"
+                >
             </div>
-            <h2>[03:29] Centralização Interna</h2>
-            <p>Aplicação de flex-direction: column e alinhamentos centralizados para organizar os elementos dentro dos cards.</p>
+
+            <span class="post-time">04 • 03:29</span>
+
+            <h2>Centralização Interna</h2>
+
+            <p>
+                Aprenda a utilizar flex-direction,
+                align-items e justify-content para
+                criar componentes bem organizados.
+            </p>
+
             <div class="card-footer">
-                <button class="like-btn" onclick="curtir(this)">
-                    <i class="fa-regular fa-heart"></i>
-                    <span>Curtir</span>
+                <button class="like-btn" type="button"
+                    aria-pressed="false" aria-label="Curtir postagem">
+
+                    <span class="heart" aria-hidden="true">♡</span>
+                    <span class="like-label">Curtir</span>
                     <span class="like-count">61</span>
+
                 </button>
             </div>
+
         </article>
 
     </main>
 
-    <!-- Rodapé -->
+    <!-- RODAPÉ -->
     <footer class="share-box">
-        <h3>🚀 Entrega de Projeto Pronta!</h3>
-        <p>Suba este arquivo no GitHub para compartilhar o resultado final do seu blog.</p>
+
+        <div class="rocket" aria-hidden="true">🚀</div>
+
+        <h3>Projeto Finalizado!</h3>
+
+        <p>
+            O conhecimento transforma ideias em realidade.
+            Continue aprendendo, praticando e desenvolvendo
+            projetos incríveis!
+        </p>
+
     </footer>
 
-    <!-- Script Interativo das Curtidas -->
-    <script>
-        function curtir(botao) {
-            const contador = botao.querySelector('.like-count');
-            const icone = botao.querySelector('i');
-            let total = parseInt(contador.innerText);
+    <div class="footer-copy">
+        © 2026 Blog Dev • Desenvolvido com 💙 e criatividade.
+    </div>
 
-            if (botao.classList.contains('curtido')) {
-                botao.classList.remove('curtido');
-                icone.classList.replace('fa-solid', 'fa-regular');
-                contador.innerText = total - 1;
-            } else {
-                botao.classList.add('curtido');
-                icone.classList.replace('fa-regular', 'fa-solid');
-                contador.innerText = total + 1;
-            }
-        }
+    <!-- JAVASCRIPT DAS CURTIDAS -->
+    <script>
+
+        const botoesCurtir = document.querySelectorAll('.like-btn');
+
+        botoesCurtir.forEach((botao) => {
+
+            botao.addEventListener('click', () => {
+
+                const contador = botao.querySelector('.like-count');
+                const icone = botao.querySelector('.heart');
+                const texto = botao.querySelector('.like-label');
+
+                let total = Number(contador.textContent);
+
+                const jaCurtido = botao.classList.contains('curtido');
+
+                if (jaCurtido) {
+
+                    total--;
+
+                    botao.classList.remove('curtido');
+                    botao.setAttribute('aria-pressed', 'false');
+
+                    icone.textContent = '♡';
+                    texto.textContent = 'Curtir';
+
+                } else {
+
+                    total++;
+
+                    botao.classList.add('curtido');
+                    botao.setAttribute('aria-pressed', 'true');
+
+                    icone.textContent = '♥';
+                    texto.textContent = 'Curtido';
+
+                }
+
+                contador.textContent = total;
+
+            });
+
+        });
+
     </script>
+
 </body>
 </html>
