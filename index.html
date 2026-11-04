@@ -3,19 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Dev - Melhorias de Layout</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Ícones via FontAwesome para o coração de curtidas -->
+    <title>Blog Dev - Layout Flexbox</title>
+
+    <!-- Biblioteca de ícones (FontAwesome para o coração de curtidas) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           RESET E CONFIGURAÇÕES GERAIS
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 1. Body com max-width: 100vw e fundo Azul Bebê */
+        body {
+            max-width: 100vw;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            color: #0c4a6e;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        /* ==========================================
+           CABEÇALHO
+           ========================================== */
+        .header-blog {
+            text-align: center;
+            padding: 48px 20px 24px 20px;
+        }
+
+        .header-blog .badge {
+            background-color: #38bdf8;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .header-blog h1 {
+            font-size: 2.4rem;
+            color: #0369a1;
+            margin: 12px 0 8px 0;
+        }
+
+        .header-blog p {
+            color: #0284c7;
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================
+           CONTAINER PRINCIPAL (FLEXBOX + FLEX-WRAP)
+           ========================================== */
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 16px;
+        }
+
+        /* ==========================================
+           CARDS DE ARTIGOS (FLEX: 1 1 25% + CENTRALIZAÇÃO)
+           ========================================== */
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            
+            border: 2px solid #7dd3fc;
+            margin: 16px;
+            gap: 16px;
+            padding: 20px;
+            flex: 1 1 25%;
+            min-width: 280px;
+
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.25);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        article:hover {
+            transform: translateY(-6px);
+            border-color: #38bdf8;
+            box-shadow: 0 16px 30px -5px rgba(14, 165, 233, 0.35);
+        }
+
+        /* Tag superior no card */
+        .card-tag {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            background-color: #0284c7;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        /* Imagens e textos */
+        article img {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        article h2 {
+            color: #0369a1;
+            font-size: 1.3rem;
+        }
+
+        article p {
+            color: #334155;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* ==========================================
+           BOTÃO DE CURTIDAS INTERATIVO
+           ========================================== */
+        .card-footer {
+            margin-top: auto;
+            width: 100%;
+            padding-top: 12px;
+        }
+
+        .like-btn {
+            background-color: #f0f9ff;
+            color: #0284c7;
+            border: 2px solid #7dd3fc;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .like-btn i {
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .like-btn:hover {
+            background-color: #e0f2fe;
+            border-color: #38bdf8;
+            transform: scale(1.05);
+        }
+
+        /* Estado ativado ao curtir */
+        .like-btn.curtido {
+            background-color: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .like-btn.curtido i {
+            color: #ff6b81;
+            transform: scale(1.2);
+        }
+
+        /* ==========================================
+           RODAPÉ
+           ========================================== */
+        .share-box {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px dashed #0284c7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 32px auto 0 auto;
+            max-width: 600px;
+            color: #0369a1;
+        }
+
+        .share-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .share-box p {
+            font-size: 0.95rem;
+            color: #334155;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Cabeçalho -->
     <header class="header-blog">
         <span class="badge">Projeto Dev</span>
         <h1>Revisando Melhorias no Layout do Blog</h1>
         <p>Ajustando a largura total, disposição dos posts e alinhamento com Flexbox</p>
     </header>
 
+    <!-- Conteúdo dos Posts -->
     <main>
 
         <!-- Post 1 -->
@@ -80,208 +278,29 @@
 
     </main>
 
-    <!-- Rodapé orientativo para o envio do projeto -->
+    <!-- Rodapé -->
     <footer class="share-box">
         <h3>🚀 Entrega de Projeto</h3>
-        <p>Projeto finalizado com layout Azul Bebê responsivo e sistema de curtidas ativado.</p>
+        <p>Projeto finalizado e pronto para publicação no GitHub.</p>
     </footer>
 
-    <!-- Script de interatividade para o botão de curtir -->
+    <!-- Script das Curtidas -->
     <script>
         function curtir(botao) {
             const contador = botao.querySelector('.like-count');
             const icone = botao.querySelector('i');
-            let num = parseInt(contador.innerText);
+            let total = parseInt(contador.innerText);
 
             if (botao.classList.contains('curtido')) {
                 botao.classList.remove('curtido');
                 icone.classList.replace('fa-solid', 'fa-regular');
-                contador.innerText = num - 1;
+                contador.innerText = total - 1;
             } else {
                 botao.classList.add('curtido');
                 icone.classList.replace('fa-regular', 'fa-solid');
-                contador.innerText = num + 1;
+                contador.innerText = total + 1;
             }
         }
     </script>
 </body>
-</html>/* Resets globais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body em Azul Bebê e 100vw para ocupar toda a largura da tela */
-body {
-    max-width: 100vw;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-    color: #0c4a6e;
-    min-height: 100vh;
-    padding-bottom: 40px;
-}
-
-/* Cabeçalho */
-.header-blog {
-    text-align: center;
-    padding: 48px 20px 24px 20px;
-}
-
-.header-blog .badge {
-    background-color: #38bdf8;
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-}
-
-.header-blog h1 {
-    font-size: 2.4rem;
-    color: #0369a1;
-    margin: 12px 0 8px 0;
-}
-
-.header-blog p {
-    color: #0284c7;
-    font-size: 1.1rem;
-}
-
-/* Main configurado com Flexbox e flex-wrap para quebra de linhas */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 16px;
-}
-
-/* Article com centralização vertical/horizontal e flex: 1 1 25% */
-article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    
-    border: 2px solid #7dd3fc;
-    margin: 16px;
-    gap: 16px;
-    padding: 20px;
-    flex: 1 1 25%;
-    min-width: 280px;
-
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    border-radius: 16px;
-    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.25);
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-article:hover {
-    transform: translateY(-6px);
-    border-color: #38bdf8;
-    box-shadow: 0 16px 30px -5px rgba(14, 165, 233, 0.35);
-}
-
-/* Tag no topo do card */
-.card-tag {
-    position: absolute;
-    top: 32px;
-    right: 32px;
-    background-color: #0284c7;
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 4px 10px;
-    border-radius: 6px;
-}
-
-/* Imagens e textos do card */
-article img {
-    width: 100%;
-    height: 180px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-article h2 {
-    color: #0369a1;
-    font-size: 1.3rem;
-}
-
-article p {
-    color: #334155;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Botão de Curtida em Tom Azul com Animação */
-.card-footer {
-    margin-top: auto;
-    width: 100%;
-    padding-top: 12px;
-}
-
-.like-btn {
-    background-color: #f0f9ff;
-    color: #0284c7;
-    border: 2px solid #7dd3fc;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.25s ease;
-}
-
-.like-btn i {
-    font-size: 1.1rem;
-    transition: transform 0.2s ease;
-}
-
-.like-btn:hover {
-    background-color: #e0f2fe;
-    border-color: #38bdf8;
-    transform: scale(1.05);
-}
-
-.like-btn.curtido {
-    background-color: #0284c7;
-    color: #ffffff;
-    border-color: #0284c7;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-}
-
-.like-btn.curtido i {
-    color: #ff6b81;
-    transform: scale(1.2);
-}
-
-/* Caixa de aviso do Rodapé */
-.share-box {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px dashed #0284c7;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 32px auto 0 auto;
-    max-width: 600px;
-    color: #0369a1;
-}
-
-.share-box h3 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-}
-
-.share-box p {
-    font-size: 0.95rem;
-    color: #334155;
-}
+</html>
