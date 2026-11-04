@@ -3,204 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Dev - Layout Flexbox</title>
+    <title>Blog Dev - Edição Azul Bebê Pro</title>
 
-    <!-- Biblioteca de ícones (FontAwesome para o coração de curtidas) -->
+    <!-- Fonte moderna do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Ícones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* ==========================================
-           RESET E CONFIGURAÇÕES GERAIS
+           VARIÁVEIS DE CORES & ESTILOS (AZUL BEBÊ)
+           ========================================== */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(186, 230, 253, 0.8);
+            --primary-blue: #0284c7;
+            --dark-blue: #0369a1;
+            --text-dark: #0c4a6e;
+            --text-muted: #334155;
+            --badge-bg: #38bdf8;
+            --heart-color: #ff4757;
+            --shadow-soft: 0 20px 30px -10px rgba(14, 165, 233, 0.2);
+            --shadow-hover: 0 25px 35px -5px rgba(2, 132, 199, 0.35);
+        }
+
+        /* ==========================================
+           RESET & BODY RESPONSIVO
            ========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* 1. Body com max-width: 100vw e fundo Azul Bebê */
         body {
             max-width: 100vw;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-            color: #0c4a6e;
             min-height: 100vh;
-            padding-bottom: 40px;
+            background: var(--bg-gradient);
+            color: var(--text-dark);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* ==========================================
-           CABEÇALHO
+           CABEÇALHO NOVO E ELEGANTE
            ========================================== */
         .header-blog {
             text-align: center;
-            padding: 48px 20px 24px 20px;
+            max-width: 800px;
+            margin-bottom: 48px;
+            position: relative;
         }
 
         .header-blog .badge {
-            background-color: #38bdf8;
+            display: inline-block;
+            background: var(--badge-bg);
             color: #ffffff;
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-size: 0.75rem;
+            font-weight: 800;
             text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 20px;
-            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+            margin-bottom: 16px;
         }
 
         .header-blog h1 {
-            font-size: 2.4rem;
-            color: #0369a1;
-            margin: 12px 0 8px 0;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            line-height: 1.2;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
         .header-blog p {
-            color: #0284c7;
-            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-size: 1.15rem;
+            font-weight: 600;
         }
 
         /* ==========================================
-           CONTAINER PRINCIPAL (FLEXBOX + FLEX-WRAP)
+           CONTAINER PRINCIPAL (FLEXBOX + RESPONSIVO)
            ========================================== */
         main {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 0 16px;
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
         }
 
         /* ==========================================
-           CARDS DE ARTIGOS (FLEX: 1 1 25% + CENTRALIZAÇÃO)
+           CARDS REDESENHADOS (GLASSMORPHISM 3D)
            ========================================== */
         article {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            justify-content: center;
+            justify-content: space-between;
             
-            border: 2px solid #7dd3fc;
-            margin: 16px;
-            gap: 16px;
-            padding: 20px;
-            flex: 1 1 25%;
-            min-width: 280px;
-
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.25);
+            flex: 1 1 280px;
+            max-width: 360px;
+            padding: 24px;
+            
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--card-border);
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+            
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
         }
 
         article:hover {
-            transform: translateY(-6px);
+            transform: translateY(-10px) scale(1.02);
             border-color: #38bdf8;
-            box-shadow: 0 16px 30px -5px rgba(14, 165, 233, 0.35);
+            box-shadow: var(--shadow-hover);
+            background: rgba(255, 255, 255, 0.9);
         }
 
-        /* Tag superior no card */
+        /* Tag de Categoria */
         .card-tag {
             position: absolute;
-            top: 32px;
-            right: 32px;
-            background-color: #0284c7;
+            top: 36px;
+            right: 36px;
+            background: var(--dark-blue);
             color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(3, 105, 161, 0.3);
+            z-index: 2;
         }
 
-        /* Imagens e textos */
+        /* Imagem da Capa */
+        .img-container {
+            width: 100%;
+            height: 190px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        }
+
         article img {
             width: 100%;
-            height: 180px;
-            border-radius: 10px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
+        article:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Títulos e Textos */
         article h2 {
-            color: #0369a1;
-            font-size: 1.3rem;
+            color: var(--dark-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
         article p {
-            color: #334155;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         /* ==========================================
-           BOTÃO DE CURTIDAS INTERATIVO
+           BOTÃO DE CURTIR REDESENHADO COM ANIMAÇÃO
            ========================================== */
         .card-footer {
-            margin-top: auto;
             width: 100%;
             padding-top: 12px;
+            border-top: 1px solid rgba(186, 230, 253, 0.5);
         }
 
         .like-btn {
-            background-color: #f0f9ff;
-            color: #0284c7;
+            width: 100%;
+            background: #f0f9ff;
+            color: var(--primary-blue);
             border: 2px solid #7dd3fc;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 12px;
+            border-radius: 50px;
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.25s ease;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
         }
 
         .like-btn i {
-            font-size: 1.1rem;
-            transition: transform 0.2s ease;
+            font-size: 1.2rem;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .like-btn:hover {
-            background-color: #e0f2fe;
+            background: #e0f2fe;
             border-color: #38bdf8;
-            transform: scale(1.05);
+            transform: translateY(-2px);
         }
 
-        /* Estado ativado ao curtir */
+        /* Estado quando acionado (Curtido) */
         .like-btn.curtido {
-            background-color: #0284c7;
+            background: var(--primary-blue);
             color: #ffffff;
-            border-color: #0284c7;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            border-color: var(--primary-blue);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
         }
 
         .like-btn.curtido i {
-            color: #ff6b81;
-            transform: scale(1.2);
+            color: var(--heart-color);
+            transform: scale(1.3);
         }
 
         /* ==========================================
-           RODAPÉ
+           RODAPÉ MODERNIZADO
            ========================================== */
         .share-box {
+            margin-top: 48px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px dashed #0284c7;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 32px auto 0 auto;
-            max-width: 600px;
-            color: #0369a1;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 2px dashed #38bdf8;
+            border-radius: 20px;
+            padding: 24px 32px;
+            max-width: 500px;
+            box-shadow: var(--shadow-soft);
         }
 
         .share-box h3 {
+            color: var(--dark-blue);
             font-size: 1.2rem;
+            font-weight: 800;
             margin-bottom: 6px;
         }
 
         .share-box p {
-            font-size: 0.95rem;
-            color: #334155;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Ajustes Responsivos */
+        @media (max-width: 600px) {
+            .header-blog h1 {
+                font-size: 2rem;
+            }
+            article {
+                flex: 1 1 100%;
+            }
         }
     </style>
 </head>
@@ -209,69 +281,77 @@
     <!-- Cabeçalho -->
     <header class="header-blog">
         <span class="badge">Projeto Dev</span>
-        <h1>Revisando Melhorias no Layout do Blog</h1>
-        <p>Ajustando a largura total, disposição dos posts e alinhamento com Flexbox</p>
+        <h1>Melhorias de Layout & Flexbox</h1>
+        <p>Design interativo em Azul Bebê com estrutura responsiva</p>
     </header>
 
-    <!-- Conteúdo dos Posts -->
+    <!-- Grid de Posts -->
     <main>
 
         <!-- Post 1 -->
         <article>
-            <div class="card-tag">CSS Flexbox</div>
-            <img src="https://via.placeholder.com/350x200/bde0fe/183C63?text=Largura+Total" alt="Ajuste de Largura">
-            <h2>[00:51] Ajustando a largura total da página</h2>
-            <p>Usamos max-width: 100vw no body para garantir que o blog ocupe 100% da largura visível da tela em qualquer dispositivo.</p>
+            <span class="card-tag">CSS Flexbox</span>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=500&q=80" alt="Flexbox Layout">
+            </div>
+            <h2>[00:51] Largura Total da Página</h2>
+            <p>Configuração do body com max-width: 100vw para permitir que a interface ocupe a largura completa da tela visível.</p>
             <div class="card-footer">
                 <button class="like-btn" onclick="curtir(this)">
                     <i class="fa-regular fa-heart"></i>
                     <span>Curtir</span>
-                    <span class="like-count">15</span>
+                    <span class="like-count">18</span>
                 </button>
             </div>
         </article>
 
         <!-- Post 2 -->
         <article>
-            <div class="card-tag">Estrutura</div>
-            <img src="https://via.placeholder.com/350x200/bde0fe/183C63?text=Flexbox+Main" alt="Organização com Flexbox">
-            <h2>[02:27] Organizando os posts com Flexbox</h2>
-            <p>Ativamos display: flex no main e adicionamos margem, gap e padding para ajustar o espaçamento entre e dentro dos cards.</p>
+            <span class="card-tag">Estrutura</span>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" alt="Código CSS">
+            </div>
+            <h2>[02:27] Organização dos Posts</h2>
+            <p>Uso do display: flex no container principal junto com propriedades de espaçamento (gap, margin e padding).</p>
             <div class="card-footer">
                 <button class="like-btn" onclick="curtir(this)">
                     <i class="fa-regular fa-heart"></i>
                     <span>Curtir</span>
-                    <span class="like-count">24</span>
+                    <span class="like-count">32</span>
                 </button>
             </div>
         </article>
 
         <!-- Post 3 -->
         <article>
-            <div class="card-tag">Responsividade</div>
-            <img src="https://via.placeholder.com/350x200/bde0fe/183C63?text=Flex+Wrap" alt="Quebra de Linha">
-            <h2>[02:23] Criando quebras de linha automáticas</h2>
-            <p>Com flex-wrap: wrap no main, os posts que ultrapassam a largura da tela passam automaticamente para a linha de baixo.</p>
+            <span class="card-tag">Responsividade</span>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80" alt="Design Responsivo">
+            </div>
+            <h2>[02:23] Quebras Automáticas</h2>
+            <p>Implementação do flex-wrap: wrap para garantir a quebra de linha suave dos cards em telas menores.</p>
             <div class="card-footer">
                 <button class="like-btn" onclick="curtir(this)">
                     <i class="fa-regular fa-heart"></i>
                     <span>Curtir</span>
-                    <span class="like-count">38</span>
+                    <span class="like-count">45</span>
                 </button>
             </div>
         </article>
 
         <!-- Post 4 -->
         <article>
-            <div class="card-tag">Alinhamento</div>
-            <img src="https://via.placeholder.com/350x200/bde0fe/183C63?text=Card+Centralizado" alt="Centralização">
-            <h2>[03:29] Centralizando o conteúdo dos cards</h2>
-            <p>Definimos flex-direction: column, align-items: center e justify-content: center para alinhar tudo perfeitamente no centro do card.</p>
+            <span class="card-tag">Alinhamento</span>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80" alt="Alinhamento">
+            </div>
+            <h2>[03:29] Centralização Interna</h2>
+            <p>Aplicação de flex-direction: column e alinhamentos centralizados para organizar os elementos dentro dos cards.</p>
             <div class="card-footer">
                 <button class="like-btn" onclick="curtir(this)">
                     <i class="fa-regular fa-heart"></i>
                     <span>Curtir</span>
-                    <span class="like-count">50</span>
+                    <span class="like-count">61</span>
                 </button>
             </div>
         </article>
@@ -280,11 +360,11 @@
 
     <!-- Rodapé -->
     <footer class="share-box">
-        <h3>🚀 Entrega de Projeto</h3>
-        <p>Projeto finalizado e pronto para publicação no GitHub.</p>
+        <h3>🚀 Entrega de Projeto Pronta!</h3>
+        <p>Suba este arquivo no GitHub para compartilhar o resultado final do seu blog.</p>
     </footer>
 
-    <!-- Script das Curtidas -->
+    <!-- Script Interativo das Curtidas -->
     <script>
         function curtir(botao) {
             const contador = botao.querySelector('.like-count');
